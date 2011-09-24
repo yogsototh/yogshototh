@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
+#import "YPlayScene.h"
 #import "HelloWorldLayer.h"
 #import "RootViewController.h"
 
@@ -89,7 +90,7 @@
 #endif
 	
 	[director setAnimationInterval:1.0/60];
-	[director setDisplayFPS:YES];
+	[director setDisplayFPS:NO];
 	
 	
 	// make the OpenGLView a child of the view controller
@@ -109,8 +110,10 @@
 	// Removes the startup flicker
 	[self removeStartupFlicker];
 	
+    YPlayScene *yPlayScene = [[YPlayScene alloc] init];
+    
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [HelloWorldLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: yPlayScene];
 }
 
 
