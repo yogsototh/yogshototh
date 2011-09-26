@@ -8,6 +8,7 @@
 
 #import "MainLayer.h"
 #import "Constants.h"
+#import "CCTouchDispatcher.h"
 
 @implementation MainLayer
 
@@ -15,7 +16,7 @@
 {
     self = [super init];
     if (self) {
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        winSize = [[CCDirector sharedDirector] winSize];
         
         starship = [[CCSprite alloc] initWithFile:@"Vaisseau.png"];
         starship.position = ccp(40, 40);
@@ -33,11 +34,42 @@
                                  100 + (rand() % ((int)winSize.height - 100)));
             [self addChild:enemy];
         }
+        self.isTouchEnabled = YES;
+        [self schedule:@selector(nextFrame:)];
         
     }
     
     return self;
 }
+
+-(void) registerWithTouchDispatcher
+{
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+     [[CCDirector sharedDirector] resume];
+    return YES;
+}
+
+
+- (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+     [[CCDirector sharedDirector] pause];
+}
+
+/*
+- (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+}*/
+
+- (void) nextFrame:(ccTime)dt
+{
+    starship.position = ccp((int)(starship.position.x + (winSize.width*dt) ) % ((int)winSize.width),40);
+}
+
 
 - (void) dealloc 
 {

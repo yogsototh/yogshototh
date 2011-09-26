@@ -9,8 +9,10 @@
 #import "cocos2d.h"
 
 @interface MainLayer : CCLayer {
+    CGSize winSize;
     CCSprite *starship;
     NSMutableArray *bullets;
     NSMutableArray *enemis;
 }
+
 @end

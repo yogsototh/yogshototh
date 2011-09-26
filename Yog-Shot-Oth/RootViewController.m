@@ -67,10 +67,10 @@
 	//
 	// Sample: Autorotate only in landscape mode
 	//
-	if( interfaceOrientation == UIInterfaceOrientationLandscapeLeft ) {
-		[[CCDirector sharedDirector] setDeviceOrientation: kCCDeviceOrientationLandscapeRight];
-	} else if( interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-		[[CCDirector sharedDirector] setDeviceOrientation: kCCDeviceOrientationLandscapeLeft];
+	if( interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown ) {
+		[[CCDirector sharedDirector] setDeviceOrientation: kCCDeviceOrientationPortraitUpsideDown];
+	} else if( interfaceOrientation == UIInterfaceOrientationPortrait) {
+		[[CCDirector sharedDirector] setDeviceOrientation: kCCDeviceOrientationPortrait];
 	}
 	
 	// Since this method should return YES in at least 1 orientation, 
@@ -85,7 +85,7 @@
 	//
 	// return YES for the supported orientations
 	
-	return ( UIInterfaceOrientationIsLandscape( interfaceOrientation ) );
+	return ( UIInterfaceOrientationIsPortrait( interfaceOrientation ) );
 	
 #else
 #error Unknown value in GAME_AUTOROTATION
@@ -93,7 +93,7 @@
 #endif // GAME_AUTOROTATION
 	
 	
-	// Shold not happen
+	// Should not happen
 	return NO;
 }
 
