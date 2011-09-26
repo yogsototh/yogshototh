@@ -7,7 +7,7 @@
 //
 
 #import "YPlayScene.h"
-#import "HelloWorldLayer.h"
+#import "MainLayer.h"
 
 @implementation YPlayScene
 
@@ -16,7 +16,7 @@
     self = [super init];
     if (self) {
         // 'layer' is an autorelease object.
-        HelloWorldLayer *layer = [HelloWorldLayer node];
+        MainLayer*layer = [MainLayer node];
         
         // add layer as a child to scene
         [self addChild: layer];
