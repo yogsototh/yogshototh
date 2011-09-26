@@ -11,7 +11,8 @@
 		F85DCC0A142E0F1400BB6491 /* Vaisseau.png in Resources */ = {isa = PBXBuildFile; fileRef = F85DCC07142E0F1400BB6491 /* Vaisseau.png */; };
 		F85DCC0B142E0F1400BB6491 /* Yogsototh.png in Resources */ = {isa = PBXBuildFile; fileRef = F85DCC08142E0F1400BB6491 /* Yogsototh.png */; };
 		F85DCC0E142E113B00BB6491 /* YPlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC0D142E113B00BB6491 /* YPlayScene.m */; };
-		F85DCC12142E13EC00BB6491 /* mainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC11142E13EC00BB6491 /* mainLayer.m */; };
+		F85DCC12142E13EC00BB6491 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC11142E13EC00BB6491 /* MainLayer.m */; };
+		F8B04DBB14311F9B00D2FCFC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B04DBA14311F9B00D2FCFC /* Constants.m */; };
 		F8D5D9B1142DBB2A00C2A769 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D5D9B0142DBB2A00C2A769 /* QuartzCore.framework */; };
 		F8D5D9B3142DBB2A00C2A769 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D5D9B2142DBB2A00C2A769 /* OpenGLES.framework */; };
 		F8D5D9B5142DBB2A00C2A769 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D5D9B4142DBB2A00C2A769 /* OpenAL.framework */; };
@@ -135,8 +136,10 @@
 		F85DCC08142E0F1400BB6491 /* Yogsototh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yogsototh.png; sourceTree = "<group>"; };
 		F85DCC0C142E113B00BB6491 /* YPlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPlayScene.h; sourceTree = "<group>"; };
 		F85DCC0D142E113B00BB6491 /* YPlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPlayScene.m; sourceTree = "<group>"; };
-		F85DCC10142E13EC00BB6491 /* mainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainLayer.h; sourceTree = "<group>"; };
-		F85DCC11142E13EC00BB6491 /* mainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainLayer.m; sourceTree = "<group>"; };
+		F85DCC10142E13EC00BB6491 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
+		F85DCC11142E13EC00BB6491 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
+		F8B04DB914311F9B00D2FCFC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		F8B04DBA14311F9B00D2FCFC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		F8D5D9AC142DBB2A00C2A769 /* Yog-Shot-Oth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yog-Shot-Oth.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D5D9B0142DBB2A00C2A769 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F8D5D9B2142DBB2A00C2A769 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -408,8 +411,8 @@
 			children = (
 				F8D5DB18142DBB2E00C2A769 /* HelloWorldLayer.h */,
 				F8D5DB19142DBB2E00C2A769 /* HelloWorldLayer.m */,
-				F85DCC10142E13EC00BB6491 /* mainLayer.h */,
-				F85DCC11142E13EC00BB6491 /* mainLayer.m */,
+				F85DCC10142E13EC00BB6491 /* MainLayer.h */,
+				F85DCC11142E13EC00BB6491 /* MainLayer.m */,
 			);
 			name = PlaySceneLayers;
 			sourceTree = "<group>";
@@ -449,6 +452,8 @@
 		F8D5D9C0142DBB2A00C2A769 /* Yog-Shot-Oth */ = {
 			isa = PBXGroup;
 			children = (
+				F8B04DB914311F9B00D2FCFC /* Constants.h */,
+				F8B04DBA14311F9B00D2FCFC /* Constants.m */,
 				F85DCC0F142E136200BB6491 /* PlaySceneLayers */,
 				F8D5DB12142DBB2E00C2A769 /* AppDelegate.h */,
 				F8D5DB13142DBB2E00C2A769 /* AppDelegate.m */,
@@ -961,7 +966,8 @@
 				F8D5DB17142DBB2E00C2A769 /* RootViewController.m in Sources */,
 				F8D5DB1A142DBB2E00C2A769 /* HelloWorldLayer.m in Sources */,
 				F85DCC0E142E113B00BB6491 /* YPlayScene.m in Sources */,
-				F85DCC12142E13EC00BB6491 /* mainLayer.m in Sources */,
+				F85DCC12142E13EC00BB6491 /* MainLayer.m in Sources */,
+				F8B04DBB14311F9B00D2FCFC /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
