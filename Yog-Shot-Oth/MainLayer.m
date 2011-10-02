@@ -16,6 +16,10 @@
 {
     self = [super init];
     if (self) {
+        // Load textures in cache
+        bulletTexture = [[CCTextureCache sharedTextureCache] addImage:@"Bullet.png"];
+        enemyTexture = [[CCTextureCache sharedTextureCache] addImage:@"Yogsototh.png"];
+        
         winSize = [[CCDirector sharedDirector] winSize];
         
         starship = [[CCSprite alloc] initWithFile:@"Vaisseau.png"];
@@ -27,7 +31,7 @@
  
         CCSprite *enemy;
         for (int i=0; i<INITIAL_ALLOC_ENEMY_NUMBER; i++) {
-            enemy = [[CCSprite alloc] initWithFile:@"Yogsototh.png"];
+            enemy = [[CCSprite alloc] initWithTexture:enemyTexture];
             [enemis addObject:enemy];
             enemy.position = ccp(
                                  (100*i) % (int)winSize.width,
@@ -42,32 +46,54 @@
     return self;
 }
 
--(void) registerWithTouchDispatcher
+-(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-}
-
--(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
-{
-     [[CCDirector sharedDirector] resume];
-    return YES;
+    UITouch *touch=[touches anyObject];
+    initialTouch=[touch locationInView:[touch view]];
+    initialTouch.y = winSize.height - initialTouch.y;
+    [[CCDirector sharedDirector] resume];
 }
 
 
-- (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+- (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-     [[CCDirector sharedDirector] pause];
+    [[CCDirector sharedDirector] pause];
 }
 
-/*
-- (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
-}*/
+    UITouch *touch = [touches anyObject];
+    //Simply store the touch location for later processing by the
+    lastTouch = [touch locationInView: [touch view]];
+    lastTouch.y = winSize.height-lastTouch.y;
+}
+
+
+-(CGFloat) restrictValue:(CGFloat)value Between:(CGFloat)minValue And:(CGFloat)maxValue
+{
+    if (value>=maxValue) {
+        return maxValue;
+    }
+    if (value<=minValue) {
+        return minValue;
+    }
+    return value;
+}
+
+-(CGPoint) restrictPoint:(CGPoint)point inside:(CGSize)size 
+{
+    point.x = [self restrictValue:point.x Between:0.0 And:size.width];
+    point.y = [self restrictValue:point.y Between:0.0 And:size.height];
+    return point;
+}
 
 - (void) nextFrame:(ccTime)dt
 {
-    starship.position = ccp((int)(starship.position.x + (winSize.width*dt) ) % ((int)winSize.width),40);
+    CGPoint newpos;
+    newpos.x = lastTouch.x;// - initialTouch.x;
+    newpos.y = lastTouch.y;// - initialTouch.y;
+    
+    starship.position = [self restrictPoint:newpos inside:winSize];
 }
 
 

@@ -17,7 +17,6 @@
     if (self) {
         // 'layer' is an autorelease object.
         MainLayer*layer = [MainLayer node];
-        
         // add layer as a child to scene
         [self addChild: layer];
         // Initialization code here.

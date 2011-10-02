@@ -11,8 +11,13 @@
 @interface MainLayer : CCLayer {
     CGSize winSize;
     CCSprite *starship;
+    CCTexture2D *bulletTexture;
     NSMutableArray *bullets;
+    CCTexture2D *enemyTexture;
     NSMutableArray *enemis;
-}
+    CGPoint initialTouch;
+    CGPoint lastTouch;
 
+}
+-(CGFloat) restrictValue:(CGFloat)value Between:(CGFloat)minValue And:(CGFloat)maxValue;
 @end
