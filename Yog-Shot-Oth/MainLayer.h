@@ -16,6 +16,7 @@
     CCTexture2D *enemyTexture;
     NSMutableArray *enemis;
     CGPoint initialTouch;
+    CGPoint starshipPositionAtTouchBegan;
     CGPoint lastTouch;
 
 }

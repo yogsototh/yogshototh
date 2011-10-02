@@ -46,11 +46,19 @@
     return self;
 }
 
+-(CGPoint) positionFromTouch:(UITouch *)touch
+{
+    CGPoint position=[touch locationInView:[touch view]];
+    position.x = winSize.width - position.x; // SHOULD UNDERSTAND WHY
+    return position;
+}
+
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch=[touches anyObject];
-    initialTouch=[touch locationInView:[touch view]];
-    initialTouch.y = winSize.height - initialTouch.y;
+    initialTouch = [self positionFromTouch:touch];
+    lastTouch = initialTouch;
+    starshipPositionAtTouchBegan = starship.position;
     [[CCDirector sharedDirector] resume];
 }
 
@@ -64,8 +72,7 @@
 {
     UITouch *touch = [touches anyObject];
     //Simply store the touch location for later processing by the
-    lastTouch = [touch locationInView: [touch view]];
-    lastTouch.y = winSize.height-lastTouch.y;
+    lastTouch = [self positionFromTouch:touch];
 }
 
 
@@ -87,13 +94,21 @@
     return point;
 }
 
+- (CGPoint) point:(CGPoint)p1 minus:(CGPoint)p2
+{
+    return CGPointMake(p1.x - p2.x, p1.y - p2.y);
+}
+
+- (CGPoint) point:(CGPoint)p1 plus:(CGPoint)p2
+{
+    return CGPointMake(p1.x+p2.x, p1.y+p2.y);
+}
+
 - (void) nextFrame:(ccTime)dt
 {
-    CGPoint newpos;
-    newpos.x = lastTouch.x;// - initialTouch.x;
-    newpos.y = lastTouch.y;// - initialTouch.y;
-    
-    starship.position = [self restrictPoint:newpos inside:winSize];
+    starship.position = [self restrictPoint: ccpAdd(starshipPositionAtTouchBegan, 
+                                                    ccpSub(initialTouch, lastTouch))
+                                     inside:winSize];
 }
 
 
