@@ -11,11 +11,17 @@
 
 @interface MainLayer : CCLayer {
     CGSize winSize;
+
     Starship *starship;
-    CCTexture2D *bulletTexture;
-    NSMutableArray *bullets;
+    CCSprite *pauseMessage;
+
     CCTexture2D *enemyTexture;
     NSMutableArray *enemis;
+ 
+    CCTexture2D *bulletTexture;
+    NSMutableArray *bullets;
+    
+    // touch related
     CGPoint initialTouch;
     CGPoint starshipPositionAtTouchBegan;
     CGPoint lastTouch;

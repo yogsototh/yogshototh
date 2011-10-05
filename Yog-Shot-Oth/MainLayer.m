@@ -16,19 +16,17 @@
 {
     self = [super init];
     if (self) {
-        // Load textures in cache
-        bulletTexture = [[CCTextureCache sharedTextureCache] addImage:@"Bullet.png"];
-        enemyTexture = [[CCTextureCache sharedTextureCache] addImage:@"Panou.png"];
         
         winSize = [[CCDirector sharedDirector] winSize];
-        
+
+        // Initialize starship
         starship = [[Starship alloc] initWithFile:@"Starship.png" winSize:winSize];
         [self addChild:starship z:1];
 
-        
+        // initialize enemies
+        // Load textures in cache
+        enemyTexture = [[CCTextureCache sharedTextureCache] addImage:@"Panou.png"];
         enemis = [[NSMutableArray alloc] initWithCapacity:INITIAL_ALLOC_ENEMY_NUMBER];
-        bullets = [[NSMutableArray alloc] initWithCapacity:INITIAL_ALLOC_BULLET_NUMBER];
- 
         CCSprite *enemy;
         for (int i=0; i<INITIAL_ALLOC_ENEMY_NUMBER; i++) {
             enemy = [[CCSprite alloc] initWithTexture:enemyTexture];
@@ -38,6 +36,19 @@
                                  100 + (rand() % ((int)winSize.height - 100)));
             [self addChild:enemy];
         }
+
+        // alloc bullets
+        // Load textures in cache
+        bulletTexture = [[CCTextureCache sharedTextureCache] addImage:@"Bullet.png"];
+        bullets = [[NSMutableArray alloc] initWithCapacity:INITIAL_ALLOC_BULLET_NUMBER];
+
+        // Alloc pause message
+        pauseMessage = [[CCSprite alloc] initWithFile:@"Pause.png"];
+        pauseMessage.position = ccp(winSize.width/2, winSize.height/2);
+        [pauseMessage runAction:[CCFadeOut actionWithDuration: 0]];
+        [self addChild:pauseMessage z:10];
+
+        
         self.isTouchEnabled = YES;
         // Init touches as if it was were the starship is positionned
         // Without this the starship will go to (0,0) at startup
@@ -65,12 +76,14 @@
     initialTouch = [self positionFromTouch:touch];
     lastTouch = initialTouch;
     starshipPositionAtTouchBegan = starship.position;
+    [pauseMessage runAction:[CCFadeOut actionWithDuration: 0]];
     [[CCDirector sharedDirector] resume];
 }
 
 
 - (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    [pauseMessage runAction:[CCFadeIn actionWithDuration: 0]];
     [[CCDirector sharedDirector] pause];
 }
 

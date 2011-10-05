@@ -8,6 +8,7 @@
 
 #import "YPlayScene.h"
 #import "MainLayer.h"
+// #import "PauseLayer.h"
 
 @implementation YPlayScene
 
@@ -16,7 +17,8 @@
     self = [super init];
     if (self) {
         // 'layer' is an autorelease object.
-        MainLayer*layer = [MainLayer node];
+        MainLayer *layer = [MainLayer node];
+        // PauseLayer * pauseLayer = [PauseLayer node];
         // add layer as a child to scene
         [self addChild: layer];
         // Initialization code here.
