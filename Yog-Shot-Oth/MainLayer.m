@@ -22,9 +22,9 @@
         
         winSize = [[CCDirector sharedDirector] winSize];
         
-        starship = [[CCSprite alloc] initWithFile:@"Starship.png"];
-        starship.position = ccp(40, 40);
+        starship = [[Starship alloc] initWithFile:@"Starship.png" winSize:winSize];
         [self addChild:starship z:1];
+
         
         enemis = [[NSMutableArray alloc] initWithCapacity:INITIAL_ALLOC_ENEMY_NUMBER];
         bullets = [[NSMutableArray alloc] initWithCapacity:INITIAL_ALLOC_BULLET_NUMBER];
@@ -39,6 +39,12 @@
             [self addChild:enemy];
         }
         self.isTouchEnabled = YES;
+        // Init touches as if it was were the starship is positionned
+        // Without this the starship will go to (0,0) at startup
+        starshipPositionAtTouchBegan = starship.position;
+        initialTouch = starshipPositionAtTouchBegan;
+        lastTouch = starshipPositionAtTouchBegan;
+        
         [self schedule:@selector(nextFrame:)];
         
     }
@@ -109,8 +115,23 @@
     starship.position = [self restrictPoint: ccpAdd(starshipPositionAtTouchBegan, 
                                                     ccpSub(initialTouch, lastTouch))
                                      inside:winSize];
+    for (CCSprite *enemy in enemis) {
+        [self updateEnemy:enemy by:dt];
+    }
 }
 
+- (void)updateEnemy:(CCSprite *)enemy by:(ccTime)dt
+{
+    int speed = 40;
+    int enemywidthdiv2 = 40;
+    int enemyheightdiv2= 40;
+    enemy.position = ccp(enemy.position.x + speed*dt,
+                         enemy.position.y + speed*dt);
+    if (enemy.position.x > winSize.width + enemywidthdiv2)
+        enemy.position = ccp(-enemywidthdiv2,enemy.position.y);
+    if (enemy.position.y > winSize.height + enemyheightdiv2)
+        enemy.position = ccp(enemy.position.x, -enemyheightdiv2);
+}
 
 - (void) dealloc 
 {

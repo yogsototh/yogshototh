@@ -13,6 +13,11 @@
 		F85DCC0E142E113B00BB6491 /* YPlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC0D142E113B00BB6491 /* YPlayScene.m */; };
 		F85DCC12142E13EC00BB6491 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC11142E13EC00BB6491 /* MainLayer.m */; };
 		F8B04DBB14311F9B00D2FCFC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B04DBA14311F9B00D2FCFC /* Constants.m */; };
+		F8B1ABB5143CF806008C0961 /* Panou.png in Resources */ = {isa = PBXBuildFile; fileRef = F8B1ABB4143CF806008C0961 /* Panou.png */; };
+		F8B1ABB8143CFEDA008C0961 /* Starship.png in Resources */ = {isa = PBXBuildFile; fileRef = F8B1ABB7143CFEDA008C0961 /* Starship.png */; };
+		F8B1ABBB143D0432008C0961 /* Panou-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8B1ABB9143D0432008C0961 /* Panou-hd.png */; };
+		F8B1ABBC143D0432008C0961 /* Starship-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8B1ABBA143D0432008C0961 /* Starship-hd.png */; };
+		F8B1ABBF143D071C008C0961 /* Starship.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B1ABBE143D071C008C0961 /* Starship.m */; };
 		F8D5D9B1142DBB2A00C2A769 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D5D9B0142DBB2A00C2A769 /* QuartzCore.framework */; };
 		F8D5D9B3142DBB2A00C2A769 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D5D9B2142DBB2A00C2A769 /* OpenGLES.framework */; };
 		F8D5D9B5142DBB2A00C2A769 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D5D9B4142DBB2A00C2A769 /* OpenAL.framework */; };
@@ -140,6 +145,12 @@
 		F85DCC11142E13EC00BB6491 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
 		F8B04DB914311F9B00D2FCFC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		F8B04DBA14311F9B00D2FCFC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		F8B1ABB4143CF806008C0961 /* Panou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Panou.png; sourceTree = "<group>"; };
+		F8B1ABB7143CFEDA008C0961 /* Starship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starship.png; sourceTree = "<group>"; };
+		F8B1ABB9143D0432008C0961 /* Panou-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Panou-hd.png"; sourceTree = "<group>"; };
+		F8B1ABBA143D0432008C0961 /* Starship-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Starship-hd.png"; sourceTree = "<group>"; };
+		F8B1ABBD143D071C008C0961 /* Starship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Starship.h; sourceTree = "<group>"; };
+		F8B1ABBE143D071C008C0961 /* Starship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Starship.m; sourceTree = "<group>"; };
 		F8D5D9AC142DBB2A00C2A769 /* Yog-Shot-Oth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yog-Shot-Oth.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D5D9B0142DBB2A00C2A769 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F8D5D9B2142DBB2A00C2A769 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -399,7 +410,11 @@
 		F85DCC04142E0EEB00BB6491 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				F8B1ABB9143D0432008C0961 /* Panou-hd.png */,
+				F8B1ABBA143D0432008C0961 /* Starship-hd.png */,
+				F8B1ABB4143CF806008C0961 /* Panou.png */,
 				F85DCC06142E0F1400BB6491 /* Bullet.png */,
+				F8B1ABB7143CFEDA008C0961 /* Starship.png */,
 				F85DCC07142E0F1400BB6491 /* Vaisseau.png */,
 				F85DCC08142E0F1400BB6491 /* Yogsototh.png */,
 			);
@@ -454,6 +469,8 @@
 			children = (
 				F8B04DB914311F9B00D2FCFC /* Constants.h */,
 				F8B04DBA14311F9B00D2FCFC /* Constants.m */,
+				F8B1ABBD143D071C008C0961 /* Starship.h */,
+				F8B1ABBE143D071C008C0961 /* Starship.m */,
 				F85DCC0F142E136200BB6491 /* PlaySceneLayers */,
 				F8D5DB12142DBB2E00C2A769 /* AppDelegate.h */,
 				F8D5DB13142DBB2E00C2A769 /* AppDelegate.m */,
@@ -857,6 +874,10 @@
 				F85DCC09142E0F1400BB6491 /* Bullet.png in Resources */,
 				F85DCC0A142E0F1400BB6491 /* Vaisseau.png in Resources */,
 				F85DCC0B142E0F1400BB6491 /* Yogsototh.png in Resources */,
+				F8B1ABB5143CF806008C0961 /* Panou.png in Resources */,
+				F8B1ABB8143CFEDA008C0961 /* Starship.png in Resources */,
+				F8B1ABBB143D0432008C0961 /* Panou-hd.png in Resources */,
+				F8B1ABBC143D0432008C0961 /* Starship-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -968,6 +989,7 @@
 				F85DCC0E142E113B00BB6491 /* YPlayScene.m in Sources */,
 				F85DCC12142E13EC00BB6491 /* MainLayer.m in Sources */,
 				F8B04DBB14311F9B00D2FCFC /* Constants.m in Sources */,
+				F8B1ABBF143D071C008C0961 /* Starship.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

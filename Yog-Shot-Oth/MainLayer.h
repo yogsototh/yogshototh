@@ -7,10 +7,11 @@
 //
 
 #import "cocos2d.h"
+#import "Starship.h"
 
 @interface MainLayer : CCLayer {
     CGSize winSize;
-    CCSprite *starship;
+    Starship *starship;
     CCTexture2D *bulletTexture;
     NSMutableArray *bullets;
     CCTexture2D *enemyTexture;
@@ -21,4 +22,5 @@
 
 }
 -(CGFloat) restrictValue:(CGFloat)value Between:(CGFloat)minValue And:(CGFloat)maxValue;
+- (void)updateEnemy:(CCSprite *)enemy by:(ccTime)dt;
 @end
