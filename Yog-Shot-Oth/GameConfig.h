@@ -42,7 +42,5 @@
 #error(unknown architecture)
 #endif
 
-#define GAME_AUTOROTATION kGameAutorotationUIViewController
-
 #endif // __GAME_CONFIG_H
 

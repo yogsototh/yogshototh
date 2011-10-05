@@ -18,13 +18,13 @@
     if (self) {
         // Load textures in cache
         bulletTexture = [[CCTextureCache sharedTextureCache] addImage:@"Bullet.png"];
-        enemyTexture = [[CCTextureCache sharedTextureCache] addImage:@"Yogsototh.png"];
+        enemyTexture = [[CCTextureCache sharedTextureCache] addImage:@"Panou.png"];
         
         winSize = [[CCDirector sharedDirector] winSize];
         
-        starship = [[CCSprite alloc] initWithFile:@"Vaisseau.png"];
+        starship = [[CCSprite alloc] initWithFile:@"Starship.png"];
         starship.position = ccp(40, 40);
-        [self addChild:starship];
+        [self addChild:starship z:1];
         
         enemis = [[NSMutableArray alloc] initWithCapacity:INITIAL_ALLOC_ENEMY_NUMBER];
         bullets = [[NSMutableArray alloc] initWithCapacity:INITIAL_ALLOC_BULLET_NUMBER];
