@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+typeset -A assoc
+assoc=( $( tr '\n' ' ' < config-resize ) )
+
+targetdir="../Yog-Shot-Oth/"
+
+for fic in ${(k)assoc}; do
+    print $fic → ${assoc[$fic]}
+    size=${assoc[$fic]}
+    convert -resize ${size}     $fic $targetdir/${fic:r}-hd.${fic:e}
+    convert -resize $((size/2)) $fic $targetdir/${fic}
+done
