@@ -52,7 +52,6 @@
         self.isTouchEnabled = YES;
         
         [self schedule:@selector(nextFrame:)];
-        
     }
     
     return self;
@@ -66,8 +65,9 @@
     }
     UITouch *touch=[touches anyObject];
     [starship touchBegan:touch];
+    [pauseMessage stopAllActions];
     [pauseMessage runAction:[CCFadeOut actionWithDuration: 0]];
-    [[CCDirector sharedDirector] resume];
+    [self resumeSchedulerAndActions];
 }
 
 
@@ -75,8 +75,9 @@
 {
     UITouch *touch=[touches anyObject];
     [starship touchEnded:touch];
-    [pauseMessage runAction:[CCFadeIn actionWithDuration: 0]];
-    [[CCDirector sharedDirector] pause];
+    [pauseMessage stopAllActions];
+    [pauseMessage runAction:[CCFadeIn actionWithDuration: 0.5]];
+    [self pauseSchedulerAndActions];
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
