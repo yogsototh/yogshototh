@@ -6,9 +6,29 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "CCSprite.h"
+#import "cocos2d.h"
 
-@interface Starship : CCSprite
+@interface Starship : CCNode
+{
+    CCSprite *sprite;
+    CGSize winSize;
 
-- (id)initWithFile:(NSString *)file winSize:(CGSize)winSize;
+    CGPoint positionAtTouchBegan;
+    CGPoint initialTouch;
+    CGPoint lastTouch;
+}
+
+@property (readonly) CCSprite *sprite;
+@property CGPoint positionAtTouchBegan;
+@property CGPoint initialTouch;
+@property CGPoint lastTouch;
+
+- (id)initWithWinSize:(CGSize)winSize;
+- (void)update:(ccTime)dt;
+- (void)touchBegan:(UITouch *)touch;
+- (void)touchEnded:(UITouch *)touch;
+- (void)touchMoved:(UITouch *)touch;
+- (void)touchesOccured:(NSSet *)touches;
+
+-(CGPoint)findTouchIn:(NSSet *)touches closestTo:(CGPoint)lastTouch;
 @end

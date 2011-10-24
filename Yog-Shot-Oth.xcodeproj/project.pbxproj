@@ -7,16 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F85DCC09142E0F1400BB6491 /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = F85DCC06142E0F1400BB6491 /* Bullet.png */; };
-		F85DCC0A142E0F1400BB6491 /* Vaisseau.png in Resources */ = {isa = PBXBuildFile; fileRef = F85DCC07142E0F1400BB6491 /* Vaisseau.png */; };
-		F85DCC0B142E0F1400BB6491 /* Yogsototh.png in Resources */ = {isa = PBXBuildFile; fileRef = F85DCC08142E0F1400BB6491 /* Yogsototh.png */; };
 		F85DCC0E142E113B00BB6491 /* YPlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC0D142E113B00BB6491 /* YPlayScene.m */; };
 		F85DCC12142E13EC00BB6491 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC11142E13EC00BB6491 /* MainLayer.m */; };
+		F8687E11143E43EC00FF817B /* Bullet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E04143E43EB00FF817B /* Bullet-hd.png */; };
+		F8687E12143E43EC00FF817B /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E05143E43EB00FF817B /* Bullet.png */; };
+		F8687E13143E43EC00FF817B /* LongBullet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E06143E43EB00FF817B /* LongBullet-hd.png */; };
+		F8687E14143E43EC00FF817B /* LongBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E07143E43EB00FF817B /* LongBullet.png */; };
+		F8687E15143E43EC00FF817B /* Panou-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E08143E43EB00FF817B /* Panou-hd.png */; };
+		F8687E16143E43EC00FF817B /* Panou.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E09143E43EB00FF817B /* Panou.png */; };
+		F8687E17143E43EC00FF817B /* Pause-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E0A143E43EB00FF817B /* Pause-hd.png */; };
+		F8687E18143E43EC00FF817B /* Starship-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E0B143E43EB00FF817B /* Starship-hd.png */; };
+		F8687E19143E43EC00FF817B /* Starship.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E0C143E43EB00FF817B /* Starship.png */; };
+		F8687E1A143E43EC00FF817B /* Vaisseau-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E0D143E43EB00FF817B /* Vaisseau-hd.png */; };
+		F8687E1B143E43EC00FF817B /* Vaisseau.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E0E143E43EB00FF817B /* Vaisseau.png */; };
+		F8687E1C143E43EC00FF817B /* Yogsototh-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E0F143E43EB00FF817B /* Yogsototh-hd.png */; };
+		F8687E1D143E43EC00FF817B /* Yogsototh.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E10143E43EB00FF817B /* Yogsototh.png */; };
 		F8B04DBB14311F9B00D2FCFC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B04DBA14311F9B00D2FCFC /* Constants.m */; };
-		F8B1ABB5143CF806008C0961 /* Panou.png in Resources */ = {isa = PBXBuildFile; fileRef = F8B1ABB4143CF806008C0961 /* Panou.png */; };
-		F8B1ABB8143CFEDA008C0961 /* Starship.png in Resources */ = {isa = PBXBuildFile; fileRef = F8B1ABB7143CFEDA008C0961 /* Starship.png */; };
-		F8B1ABBB143D0432008C0961 /* Panou-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8B1ABB9143D0432008C0961 /* Panou-hd.png */; };
-		F8B1ABBC143D0432008C0961 /* Starship-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8B1ABBA143D0432008C0961 /* Starship-hd.png */; };
 		F8B1ABBF143D071C008C0961 /* Starship.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B1ABBE143D071C008C0961 /* Starship.m */; };
 		F8B1ABC4143D13A1008C0961 /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = F8B1ABC3143D13A1008C0961 /* Pause.png */; };
 		F8B1ABC7143D1481008C0961 /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B1ABC6143D1481008C0961 /* PauseLayer.m */; };
@@ -138,22 +144,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F85DCC06142E0F1400BB6491 /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bullet.png; sourceTree = "<group>"; };
-		F85DCC07142E0F1400BB6491 /* Vaisseau.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vaisseau.png; sourceTree = "<group>"; };
-		F85DCC08142E0F1400BB6491 /* Yogsototh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yogsototh.png; sourceTree = "<group>"; };
 		F85DCC0C142E113B00BB6491 /* YPlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPlayScene.h; sourceTree = "<group>"; };
 		F85DCC0D142E113B00BB6491 /* YPlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPlayScene.m; sourceTree = "<group>"; };
 		F85DCC10142E13EC00BB6491 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
 		F85DCC11142E13EC00BB6491 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
+		F8687E04143E43EB00FF817B /* Bullet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Bullet-hd.png"; path = "Resources/sprites/Bullet-hd.png"; sourceTree = "<group>"; };
+		F8687E05143E43EB00FF817B /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bullet.png; path = Resources/sprites/Bullet.png; sourceTree = "<group>"; };
+		F8687E06143E43EB00FF817B /* LongBullet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LongBullet-hd.png"; path = "Resources/sprites/LongBullet-hd.png"; sourceTree = "<group>"; };
+		F8687E07143E43EB00FF817B /* LongBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LongBullet.png; path = Resources/sprites/LongBullet.png; sourceTree = "<group>"; };
+		F8687E08143E43EB00FF817B /* Panou-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Panou-hd.png"; path = "Resources/sprites/Panou-hd.png"; sourceTree = "<group>"; };
+		F8687E09143E43EB00FF817B /* Panou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Panou.png; path = Resources/sprites/Panou.png; sourceTree = "<group>"; };
+		F8687E0A143E43EB00FF817B /* Pause-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Pause-hd.png"; path = "Resources/sprites/Pause-hd.png"; sourceTree = "<group>"; };
+		F8687E0B143E43EB00FF817B /* Starship-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Starship-hd.png"; path = "Resources/sprites/Starship-hd.png"; sourceTree = "<group>"; };
+		F8687E0C143E43EB00FF817B /* Starship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Starship.png; path = Resources/sprites/Starship.png; sourceTree = "<group>"; };
+		F8687E0D143E43EB00FF817B /* Vaisseau-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Vaisseau-hd.png"; path = "Resources/sprites/Vaisseau-hd.png"; sourceTree = "<group>"; };
+		F8687E0E143E43EB00FF817B /* Vaisseau.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Vaisseau.png; path = Resources/sprites/Vaisseau.png; sourceTree = "<group>"; };
+		F8687E0F143E43EB00FF817B /* Yogsototh-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Yogsototh-hd.png"; path = "Resources/sprites/Yogsototh-hd.png"; sourceTree = "<group>"; };
+		F8687E10143E43EB00FF817B /* Yogsototh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Yogsototh.png; path = Resources/sprites/Yogsototh.png; sourceTree = "<group>"; };
 		F8B04DB914311F9B00D2FCFC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		F8B04DBA14311F9B00D2FCFC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		F8B1ABB4143CF806008C0961 /* Panou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Panou.png; sourceTree = "<group>"; };
-		F8B1ABB7143CFEDA008C0961 /* Starship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starship.png; sourceTree = "<group>"; };
-		F8B1ABB9143D0432008C0961 /* Panou-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Panou-hd.png"; sourceTree = "<group>"; };
-		F8B1ABBA143D0432008C0961 /* Starship-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Starship-hd.png"; sourceTree = "<group>"; };
 		F8B1ABBD143D071C008C0961 /* Starship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Starship.h; sourceTree = "<group>"; };
 		F8B1ABBE143D071C008C0961 /* Starship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Starship.m; sourceTree = "<group>"; };
-		F8B1ABC3143D13A1008C0961 /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause.png; sourceTree = "<group>"; };
+		F8B1ABC3143D13A1008C0961 /* Pause.png */ = {isa = PBXFileReference; explicitFileType = image.png; name = Pause.png; path = Resources/sprites/Pause.png; sourceTree = "<group>"; };
 		F8B1ABC5143D1481008C0961 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
 		F8B1ABC6143D1481008C0961 /* PauseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseLayer.m; sourceTree = "<group>"; };
 		F8D5D9AC142DBB2A00C2A769 /* Yog-Shot-Oth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yog-Shot-Oth.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -415,14 +427,20 @@
 		F85DCC04142E0EEB00BB6491 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				F8687E04143E43EB00FF817B /* Bullet-hd.png */,
+				F8687E05143E43EB00FF817B /* Bullet.png */,
+				F8687E06143E43EB00FF817B /* LongBullet-hd.png */,
+				F8687E07143E43EB00FF817B /* LongBullet.png */,
+				F8687E08143E43EB00FF817B /* Panou-hd.png */,
+				F8687E09143E43EB00FF817B /* Panou.png */,
+				F8687E0A143E43EB00FF817B /* Pause-hd.png */,
+				F8687E0B143E43EB00FF817B /* Starship-hd.png */,
+				F8687E0C143E43EB00FF817B /* Starship.png */,
+				F8687E0D143E43EB00FF817B /* Vaisseau-hd.png */,
+				F8687E0E143E43EB00FF817B /* Vaisseau.png */,
+				F8687E0F143E43EB00FF817B /* Yogsototh-hd.png */,
+				F8687E10143E43EB00FF817B /* Yogsototh.png */,
 				F8B1ABC3143D13A1008C0961 /* Pause.png */,
-				F8B1ABB9143D0432008C0961 /* Panou-hd.png */,
-				F8B1ABBA143D0432008C0961 /* Starship-hd.png */,
-				F8B1ABB4143CF806008C0961 /* Panou.png */,
-				F85DCC06142E0F1400BB6491 /* Bullet.png */,
-				F8B1ABB7143CFEDA008C0961 /* Starship.png */,
-				F85DCC07142E0F1400BB6491 /* Vaisseau.png */,
-				F85DCC08142E0F1400BB6491 /* Yogsototh.png */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -848,6 +866,9 @@
 /* Begin PBXProject section */
 		F8D5D9A3142DBB2A00C2A769 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = F8D5D9A6142DBB2A00C2A769 /* Build configuration list for PBXProject "Yog-Shot-Oth" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -879,14 +900,20 @@
 				F8D5D9CF142DBB2A00C2A769 /* Icon.png in Resources */,
 				F8D5D9D1142DBB2A00C2A769 /* Icon@2x.png in Resources */,
 				F8D5D9D4142DBB2A00C2A769 /* iTunesArtwork in Resources */,
-				F85DCC09142E0F1400BB6491 /* Bullet.png in Resources */,
-				F85DCC0A142E0F1400BB6491 /* Vaisseau.png in Resources */,
-				F85DCC0B142E0F1400BB6491 /* Yogsototh.png in Resources */,
-				F8B1ABB5143CF806008C0961 /* Panou.png in Resources */,
-				F8B1ABB8143CFEDA008C0961 /* Starship.png in Resources */,
-				F8B1ABBB143D0432008C0961 /* Panou-hd.png in Resources */,
-				F8B1ABBC143D0432008C0961 /* Starship-hd.png in Resources */,
 				F8B1ABC4143D13A1008C0961 /* Pause.png in Resources */,
+				F8687E11143E43EC00FF817B /* Bullet-hd.png in Resources */,
+				F8687E12143E43EC00FF817B /* Bullet.png in Resources */,
+				F8687E13143E43EC00FF817B /* LongBullet-hd.png in Resources */,
+				F8687E14143E43EC00FF817B /* LongBullet.png in Resources */,
+				F8687E15143E43EC00FF817B /* Panou-hd.png in Resources */,
+				F8687E16143E43EC00FF817B /* Panou.png in Resources */,
+				F8687E17143E43EC00FF817B /* Pause-hd.png in Resources */,
+				F8687E18143E43EC00FF817B /* Starship-hd.png in Resources */,
+				F8687E19143E43EC00FF817B /* Starship.png in Resources */,
+				F8687E1A143E43EC00FF817B /* Vaisseau-hd.png in Resources */,
+				F8687E1B143E43EC00FF817B /* Vaisseau.png in Resources */,
+				F8687E1C143E43EC00FF817B /* Yogsototh-hd.png in Resources */,
+				F8687E1D143E43EC00FF817B /* Yogsototh.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1051,6 +1078,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Yog-Shot-Oth/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Yog-Shot-Oth/Resources/Info.plist";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1066,6 +1094,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Yog-Shot-Oth/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Yog-Shot-Oth/Resources/Info.plist";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";

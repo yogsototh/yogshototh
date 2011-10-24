@@ -51,6 +51,9 @@
 	
 	
 	CCDirector *director = [CCDirector sharedDirector];
+    
+    if (! [director enableRetinaDisplay:YES])
+        CCLOG(@"Retina Display Not Supported");
 	
 	// Init the View Controller
 	viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];

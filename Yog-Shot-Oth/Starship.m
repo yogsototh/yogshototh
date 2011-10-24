@@ -8,6 +8,7 @@
 
 #import "Starship.h"
 #import "cocos2d.h"
+#import "CCSprite.h"
 
 @implementation Starship
 
@@ -20,12 +21,62 @@
     }
     return self;
 }
+@synthesize positionAtTouchBegan;
+@synthesize initialTouch;
+@synthesize lastTouch;
+@synthesize sprite;
 
-- (id)initWithFile:(NSString *)file winSize:(CGSize)winSize
+- (id)initWithWinSize:(CGSize)winSizeGiven
 {
-   [self initWithFile:@"Starship.png"];
-    self.position = ccp(winSize.width/2, 50);
+    winSize = winSizeGiven;
+    sprite = [CCSprite spriteWithFile:@"Starship.png"];
+    sprite.position = ccp(winSize.width/2, 50);
+    self.positionAtTouchBegan         = sprite.position;
+    self.initialTouch       = self.positionAtTouchBegan;
+    self.lastTouch          = self.positionAtTouchBegan;
     return self;
+}
+
+-(CGPoint) positionFromTouch:(UITouch *)touch
+{
+    CGPoint position=[touch locationInView:[touch view]];
+    position.x = winSize.width - position.x; // SHOULD UNDERSTAND WHY
+    return position;
+}
+
+-(void)touchBegan:(UITouch *)touch {
+    self.positionAtTouchBegan = sprite.position;
+    self.initialTouch = [self positionFromTouch:touch];
+    self.lastTouch = self.initialTouch;
+}
+
+-(void)touchEnded:(UITouch *)touch {}
+
+-(void)touchMoved:(UITouch *)touch {
+    //Simply store the touch location for later processing by the
+    self.lastTouch = [self positionFromTouch:touch];
+}
+
+-(CGPoint)findTouchIn:(NSSet *)touches closestTo:(CGPoint)targetPosition {
+    CGPoint closest;
+    CGPoint position;
+    CGFloat minDist=winSize.width + winSize.height;
+    for (UITouch *touch in touches) { 
+        position=[self positionFromTouch:touch];
+        if (ccpDistance(position, targetPosition) < minDist)
+            closest = position;
+    }
+    return closest;
+}
+
+-(void)touchesOccured:(NSSet *)touches {
+    //Simply store the touch location for later processing by the
+    NSLog(@"Multiple touches occured");
+    self.lastTouch = [self findTouchIn:touches closestTo:lastTouch];
+}
+
+-(void)update:(ccTime)dt {
+    sprite.position = ccpAdd(self.positionAtTouchBegan, ccpSub(self.initialTouch, self.lastTouch));
 }
 
 @end

@@ -20,8 +20,8 @@
         winSize = [[CCDirector sharedDirector] winSize];
 
         // Initialize starship
-        starship = [[Starship alloc] initWithFile:@"Starship.png" winSize:winSize];
-        [self addChild:starship z:1];
+        starship = [[Starship alloc] initWithWinSize:winSize];
+        [self addChild:starship.sprite z:1];
 
         // initialize enemies
         // Load textures in cache
@@ -50,11 +50,6 @@
 
         
         self.isTouchEnabled = YES;
-        // Init touches as if it was were the starship is positionned
-        // Without this the starship will go to (0,0) at startup
-        starshipPositionAtTouchBegan = starship.position;
-        initialTouch = starshipPositionAtTouchBegan;
-        lastTouch = starshipPositionAtTouchBegan;
         
         [self schedule:@selector(nextFrame:)];
         
@@ -63,19 +58,14 @@
     return self;
 }
 
--(CGPoint) positionFromTouch:(UITouch *)touch
-{
-    CGPoint position=[touch locationInView:[touch view]];
-    position.x = winSize.width - position.x; // SHOULD UNDERSTAND WHY
-    return position;
-}
-
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
+    if ([touches count]>1) {
+        [starship touchesOccured:touches];
+    }
     UITouch *touch=[touches anyObject];
-    initialTouch = [self positionFromTouch:touch];
-    lastTouch = initialTouch;
-    starshipPositionAtTouchBegan = starship.position;
+    [starship touchBegan:touch];
     [pauseMessage runAction:[CCFadeOut actionWithDuration: 0]];
     [[CCDirector sharedDirector] resume];
 }
@@ -83,6 +73,8 @@
 
 - (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    UITouch *touch=[touches anyObject];
+    [starship touchEnded:touch];
     [pauseMessage runAction:[CCFadeIn actionWithDuration: 0]];
     [[CCDirector sharedDirector] pause];
 }
@@ -90,8 +82,7 @@
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
-    //Simply store the touch location for later processing by the
-    lastTouch = [self positionFromTouch:touch];
+    [starship touchMoved:touch];
 }
 
 
@@ -125,9 +116,7 @@
 
 - (void) nextFrame:(ccTime)dt
 {
-    starship.position = [self restrictPoint: ccpAdd(starshipPositionAtTouchBegan, 
-                                                    ccpSub(initialTouch, lastTouch))
-                                     inside:winSize];
+    [starship update:dt];
     for (CCSprite *enemy in enemis) {
         [self updateEnemy:enemy by:dt];
     }
