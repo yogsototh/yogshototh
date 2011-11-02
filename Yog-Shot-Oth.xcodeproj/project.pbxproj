@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F85DCC0E142E113B00BB6491 /* YPlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC0D142E113B00BB6491 /* YPlayScene.m */; };
 		F85DCC12142E13EC00BB6491 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC11142E13EC00BB6491 /* MainLayer.m */; };
+		F85F20D6145A016900A213C7 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = F85F20D5145A016900A213C7 /* Enemy.m */; };
 		F8687E11143E43EC00FF817B /* Bullet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E04143E43EB00FF817B /* Bullet-hd.png */; };
 		F8687E12143E43EC00FF817B /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E05143E43EB00FF817B /* Bullet.png */; };
 		F8687E13143E43EC00FF817B /* LongBullet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8687E06143E43EB00FF817B /* LongBullet-hd.png */; };
@@ -148,6 +149,8 @@
 		F85DCC0D142E113B00BB6491 /* YPlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPlayScene.m; sourceTree = "<group>"; };
 		F85DCC10142E13EC00BB6491 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
 		F85DCC11142E13EC00BB6491 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
+		F85F20D4145A016900A213C7 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = Sprites/Enemy.h; sourceTree = "<group>"; };
+		F85F20D5145A016900A213C7 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Enemy.m; path = Sprites/Enemy.m; sourceTree = "<group>"; };
 		F8687E04143E43EB00FF817B /* Bullet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Bullet-hd.png"; path = "Resources/sprites/Bullet-hd.png"; sourceTree = "<group>"; };
 		F8687E05143E43EB00FF817B /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bullet.png; path = Resources/sprites/Bullet.png; sourceTree = "<group>"; };
 		F8687E06143E43EB00FF817B /* LongBullet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LongBullet-hd.png"; path = "Resources/sprites/LongBullet-hd.png"; sourceTree = "<group>"; };
@@ -458,6 +461,17 @@
 			name = PlaySceneLayers;
 			sourceTree = "<group>";
 		};
+		F85F20D2145A010B00A213C7 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				F85F20D4145A016900A213C7 /* Enemy.h */,
+				F85F20D5145A016900A213C7 /* Enemy.m */,
+				F8B1ABBD143D071C008C0961 /* Starship.h */,
+				F8B1ABBE143D071C008C0961 /* Starship.m */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
 		F8D5D9A1142DBB2A00C2A769 = {
 			isa = PBXGroup;
 			children = (
@@ -493,10 +507,9 @@
 		F8D5D9C0142DBB2A00C2A769 /* Yog-Shot-Oth */ = {
 			isa = PBXGroup;
 			children = (
+				F85F20D2145A010B00A213C7 /* Sprites */,
 				F8B04DB914311F9B00D2FCFC /* Constants.h */,
 				F8B04DBA14311F9B00D2FCFC /* Constants.m */,
-				F8B1ABBD143D071C008C0961 /* Starship.h */,
-				F8B1ABBE143D071C008C0961 /* Starship.m */,
 				F85DCC0F142E136200BB6491 /* PlaySceneLayers */,
 				F8D5DB12142DBB2E00C2A769 /* AppDelegate.h */,
 				F8D5DB13142DBB2E00C2A769 /* AppDelegate.m */,
@@ -1027,6 +1040,7 @@
 				F8B04DBB14311F9B00D2FCFC /* Constants.m in Sources */,
 				F8B1ABBF143D071C008C0961 /* Starship.m in Sources */,
 				F8B1ABC7143D1481008C0961 /* PauseLayer.m in Sources */,
+				F85F20D6145A016900A213C7 /* Enemy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

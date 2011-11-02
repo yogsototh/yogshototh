@@ -8,6 +8,8 @@
 
 #import "cocos2d.h"
 
+// TODO Limit movement to inside winSize
+
 @interface Starship : CCNode
 {
     CCSprite *sprite;

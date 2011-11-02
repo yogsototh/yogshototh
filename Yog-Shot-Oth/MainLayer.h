@@ -27,6 +27,9 @@
     CGPoint lastTouch;
 
 }
+
+@property (readonly) CGSize winSize;
+@property (readonly) Starship *starship;
+
 -(CGFloat) restrictValue:(CGFloat)value Between:(CGFloat)minValue And:(CGFloat)maxValue;
-- (void)updateEnemy:(CCSprite *)enemy by:(ccTime)dt;
 @end

@@ -9,8 +9,12 @@
 #import "MainLayer.h"
 #import "Constants.h"
 #import "CCTouchDispatcher.h"
+#import "Enemy.h"
 
 @implementation MainLayer
+
+@synthesize winSize;
+@synthesize starship;
 
 - (id)init
 {
@@ -27,14 +31,11 @@
         // Load textures in cache
         enemyTexture = [[CCTextureCache sharedTextureCache] addImage:@"Panou.png"];
         enemis = [[NSMutableArray alloc] initWithCapacity:INITIAL_ALLOC_ENEMY_NUMBER];
-        CCSprite *enemy;
+        Enemy *enemy;
         for (int i=0; i<INITIAL_ALLOC_ENEMY_NUMBER; i++) {
-            enemy = [[CCSprite alloc] initWithTexture:enemyTexture];
+            enemy = [[Enemy alloc] initWithTexture:enemyTexture father:self];
             [enemis addObject:enemy];
-            enemy.position = ccp(
-                                 (100*i) % (int)winSize.width,
-                                 100 + (rand() % ((int)winSize.height - 100)));
-            [self addChild:enemy];
+            [self addChild:enemy.sprite];
         }
 
         // alloc bullets
@@ -105,35 +106,12 @@
     return point;
 }
 
-- (CGPoint) point:(CGPoint)p1 minus:(CGPoint)p2
-{
-    return CGPointMake(p1.x - p2.x, p1.y - p2.y);
-}
-
-- (CGPoint) point:(CGPoint)p1 plus:(CGPoint)p2
-{
-    return CGPointMake(p1.x+p2.x, p1.y+p2.y);
-}
-
 - (void) nextFrame:(ccTime)dt
 {
     [starship update:dt];
-    for (CCSprite *enemy in enemis) {
-        [self updateEnemy:enemy by:dt];
+    for (Enemy *enemy in enemis) {
+        [enemy update:dt];
     }
-}
-
-- (void)updateEnemy:(CCSprite *)enemy by:(ccTime)dt
-{
-    int speed = 40;
-    int enemywidthdiv2 = 40;
-    int enemyheightdiv2= 40;
-    enemy.position = ccp(enemy.position.x + speed*dt,
-                         enemy.position.y + speed*dt);
-    if (enemy.position.x > winSize.width + enemywidthdiv2)
-        enemy.position = ccp(-enemywidthdiv2,enemy.position.y);
-    if (enemy.position.y > winSize.height + enemyheightdiv2)
-        enemy.position = ccp(enemy.position.x, -enemyheightdiv2);
 }
 
 - (void) dealloc 

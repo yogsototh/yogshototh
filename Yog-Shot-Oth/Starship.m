@@ -28,12 +28,15 @@
 
 - (id)initWithWinSize:(CGSize)winSizeGiven
 {
-    winSize = winSizeGiven;
-    sprite = [CCSprite spriteWithFile:@"Starship.png"];
-    sprite.position = ccp(winSize.width/2, 50);
-    self.positionAtTouchBegan         = sprite.position;
-    self.initialTouch       = self.positionAtTouchBegan;
-    self.lastTouch          = self.positionAtTouchBegan;
+    self = [super init];
+    if (self) {
+        winSize = winSizeGiven;
+        sprite = [CCSprite spriteWithFile:@"Starship.png"];
+        sprite.position = ccp(winSize.width/2, 50);
+        self.positionAtTouchBegan         = sprite.position;
+        self.initialTouch       = self.positionAtTouchBegan;
+        self.lastTouch          = self.positionAtTouchBegan;
+    }
     return self;
 }
 
