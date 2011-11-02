@@ -25,7 +25,7 @@
 
         // Initialize starship
         starship = [[Starship alloc] initWithWinSize:winSize];
-        [self addChild:starship.sprite z:1];
+        [self addChild:starship.sprite z:5];
 
         // initialize enemies
         // Load textures in cache
@@ -35,7 +35,7 @@
         for (int i=0; i<INITIAL_ALLOC_ENEMY_NUMBER; i++) {
             enemy = [[Enemy alloc] initWithTexture:enemyTexture father:self];
             [enemis addObject:enemy];
-            [self addChild:enemy.sprite];
+            [self addChild:enemy.sprite z:0];
         }
 
         // alloc bullets

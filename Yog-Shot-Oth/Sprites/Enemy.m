@@ -28,8 +28,10 @@
 }
 
 - (void)update:(ccTime)dt {
-    CGPoint vectFromSpriteToStarship = ccpSub(father.starship.position, sprite.position); 
-    speed = ccpNormalize(vectFromSpriteToStarship);
+    CGPoint vectFromSpriteToStarship = ccpSub(father.starship.sprite.position, sprite.position);
+    
+    speed = ccpMult(ccpNormalize(vectFromSpriteToStarship),2.0);
+    
     sprite.position = ccpAdd(sprite.position, speed);
         
     if (ccpLength(vectFromSpriteToStarship) < 10.0) {
