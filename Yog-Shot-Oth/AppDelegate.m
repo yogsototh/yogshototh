@@ -51,9 +51,7 @@
 	
 	
 	CCDirector *director = [CCDirector sharedDirector];
-    
-    if (! [director enableRetinaDisplay:YES])
-        CCLOG(@"Retina Display Not Supported");
+
 	
 	// Init the View Controller
 	viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
@@ -74,7 +72,12 @@
     [glView setMultipleTouchEnabled:YES];
 	// attach the openglView to the director
 	[director setOpenGLView:glView];
-	
+
+    if (! [director enableRetinaDisplay:YES])
+        CCLOG(@"Retina Display Not Supported");
+    
+
+    
 //	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
 //	if( ! [director enableRetinaDisplay:YES] )
 //		CCLOG(@"Retina Display Not supported");
