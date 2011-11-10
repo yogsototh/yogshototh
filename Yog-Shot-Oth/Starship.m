@@ -9,6 +9,7 @@
 #import "Starship.h"
 #import "cocos2d.h"
 #import "CCSprite.h"
+#import "geometry.h"
 
 @implementation Starship
 
@@ -80,6 +81,8 @@
 
 -(void)update:(ccTime)dt {
     sprite.position = ccpAdd(self.positionAtTouchBegan, ccpSub(self.initialTouch, self.lastTouch));
+
+    sprite.position = ccpRestrict(sprite.position,sprite.boundingBox.size,winSize);
 }
 
 @end

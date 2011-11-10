@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F80F0367146B4AEB001D310E /* geometry.c in Sources */ = {isa = PBXBuildFile; fileRef = F80F0366146B4AEB001D310E /* geometry.c */; };
 		F85DCC0E142E113B00BB6491 /* YPlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC0D142E113B00BB6491 /* YPlayScene.m */; };
 		F85DCC12142E13EC00BB6491 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC11142E13EC00BB6491 /* MainLayer.m */; };
 		F85F20D6145A016900A213C7 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = F85F20D5145A016900A213C7 /* Enemy.m */; };
@@ -145,6 +146,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F80F0363146B4A98001D310E /* geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry.h; sourceTree = "<group>"; };
+		F80F0366146B4AEB001D310E /* geometry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = geometry.c; sourceTree = "<group>"; };
 		F85DCC0C142E113B00BB6491 /* YPlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPlayScene.h; sourceTree = "<group>"; };
 		F85DCC0D142E113B00BB6491 /* YPlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPlayScene.m; sourceTree = "<group>"; };
 		F85DCC10142E13EC00BB6491 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
@@ -427,6 +430,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F80F0365146B4AA2001D310E /* Y */ = {
+			isa = PBXGroup;
+			children = (
+				F80F0363146B4A98001D310E /* geometry.h */,
+				F80F0366146B4AEB001D310E /* geometry.c */,
+			);
+			name = Y;
+			sourceTree = "<group>";
+		};
 		F85DCC04142E0EEB00BB6491 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +558,7 @@
 		F8D5D9D5142DBB2B00C2A769 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				F80F0365146B4AA2001D310E /* Y */,
 				F8D5DACB142DBB2D00C2A769 /* LICENSE_cocos2d.txt */,
 				F8D5DADA142DBB2D00C2A769 /* LICENSE_CocosDenshion.txt */,
 				F8D5DAE5142DBB2D00C2A769 /* LICENSE_TouchJSON.txt */,
@@ -1041,6 +1054,7 @@
 				F8B1ABBF143D071C008C0961 /* Starship.m in Sources */,
 				F8B1ABC7143D1481008C0961 /* PauseLayer.m in Sources */,
 				F85F20D6145A016900A213C7 /* Enemy.m in Sources */,
+				F80F0367146B4AEB001D310E /* geometry.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
