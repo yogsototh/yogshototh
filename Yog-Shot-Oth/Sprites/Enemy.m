@@ -23,6 +23,7 @@
                              rand() % (int)father.winSize.width,
                              100 + (rand() % ((int)father.winSize.height - 100)));
 
+        [self addChild:sprite];
     }
     return self;
 }
@@ -30,7 +31,7 @@
 - (void)update:(ccTime)dt {
     CGPoint vectFromSpriteToStarship = ccpSub(father.starship.sprite.position, sprite.position);
     
-    speed = ccpMult(ccpNormalize(vectFromSpriteToStarship),2.0);
+    speed = ccpMult(ccpNormalize(vectFromSpriteToStarship),0.4);
     
     sprite.position = ccpAdd(sprite.position, speed);
         

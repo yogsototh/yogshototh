@@ -37,6 +37,7 @@
         self.positionAtTouchBegan         = sprite.position;
         self.initialTouch       = self.positionAtTouchBegan;
         self.lastTouch          = self.positionAtTouchBegan;
+        [self addChild:sprite];
     }
     return self;
 }
