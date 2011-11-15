@@ -8,11 +8,14 @@
 
 #import <CoreGraphics/CGBase.h>	// CGFloat
 #import <CoreGraphics/CGGeometry.h>	// CGPoint
+#import <objc/objc.h>
 
 #ifndef Yog_Shot_Oth_geometry_h
 #define Yog_Shot_Oth_geometry_h
 
 CGFloat yrestrict(CGFloat value, CGFloat min, CGFloat max);
 CGPoint ccpRestrict(CGPoint pos, CGSize size, CGSize window);
+
+BOOL outOfWindow(CGPoint pos, CGSize size, CGSize windowSize);
 
 #endif

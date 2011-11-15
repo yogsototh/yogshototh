@@ -32,5 +32,7 @@
 - (void)touchMoved:(UITouch *)touch;
 - (void)touchesOccured:(NSSet *)touches;
 
+- (CGPoint)position;
+
 -(CGPoint)findTouchIn:(NSSet *)touches closestTo:(CGPoint)lastTouch;
 @end

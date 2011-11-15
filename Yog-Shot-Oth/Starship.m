@@ -42,6 +42,10 @@
     return self;
 }
 
+- (CGPoint) position {
+    return sprite.position;
+}
+
 -(CGPoint) positionFromTouch:(UITouch *)touch
 {
     CGPoint position=[touch locationInView:[touch view]];

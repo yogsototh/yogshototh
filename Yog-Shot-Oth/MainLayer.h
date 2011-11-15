@@ -7,7 +7,8 @@
 //
 
 #import "cocos2d.h"
-#import "Starship.h"
+@class Starship;
+@class Bullet;
 
 @interface MainLayer : CCLayer {
     CGSize winSize;
@@ -16,20 +17,13 @@
     CCSprite *pauseMessage;
 
     CCTexture2D *enemyTexture;
-    NSMutableArray *enemis;
+    NSMutableSet *enemis;
  
     CCTexture2D *bulletTexture;
-    NSMutableArray *bullets;
-    
-    // touch related
-    CGPoint initialTouch;
-    CGPoint starshipPositionAtTouchBegan;
-    CGPoint lastTouch;
-
+    NSMutableSet *bullets;
 }
-
 @property (readonly) CGSize winSize;
 @property (readonly) Starship *starship;
 
--(CGFloat) restrictValue:(CGFloat)value Between:(CGFloat)minValue And:(CGFloat)maxValue;
+-(void) addBullet:(Bullet *)bullet;
 @end

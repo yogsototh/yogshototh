@@ -9,7 +9,9 @@
 #import "MainLayer.h"
 #import "Constants.h"
 #import "CCTouchDispatcher.h"
+#import "Starship.h"
 #import "Enemy.h"
+#import "Bullet.h"
 
 @implementation MainLayer
 
@@ -30,7 +32,7 @@
         // initialize enemies
         // Load textures in cache
         enemyTexture = [[CCTextureCache sharedTextureCache] addImage:@"Panou.png"];
-        enemis = [[NSMutableArray alloc] initWithCapacity:INITIAL_ALLOC_ENEMY_NUMBER];
+        enemis = [[NSMutableSet alloc] initWithCapacity:INITIAL_ALLOC_ENEMY_NUMBER];
         Enemy *enemy;
         for (int i=0; i<INITIAL_ALLOC_ENEMY_NUMBER; i++) {
             enemy = [[Enemy alloc] initWithTexture:enemyTexture father:self];
@@ -41,7 +43,7 @@
         // alloc bullets
         // Load textures in cache
         bulletTexture = [[CCTextureCache sharedTextureCache] addImage:@"Bullet.png"];
-        bullets = [[NSMutableArray alloc] initWithCapacity:INITIAL_ALLOC_BULLET_NUMBER];
+        bullets = [[NSMutableSet alloc] initWithCapacity:INITIAL_ALLOC_BULLET_NUMBER];
 
         // Alloc pause message
         pauseMessage = [[CCSprite alloc] initWithFile:@"Pause.png"];
@@ -56,6 +58,17 @@
     }
     
     return self;
+}
+
+-(void) addBullet:(Bullet *)bullet
+{
+    [bullets addObject:bullet];
+}
+
+-(void) removeBullet:(Bullet *)bullet
+{
+    [bullets removeObject:bullet];
+    [bullet release];
 }
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -87,30 +100,14 @@
     [starship touchMoved:touch];
 }
 
-
--(CGFloat) restrictValue:(CGFloat)value Between:(CGFloat)minValue And:(CGFloat)maxValue
-{
-    if (value>=maxValue) {
-        return maxValue;
-    }
-    if (value<=minValue) {
-        return minValue;
-    }
-    return value;
-}
-
--(CGPoint) restrictPoint:(CGPoint)point inside:(CGSize)size 
-{
-    point.x = [self restrictValue:point.x Between:0.0 And:size.width];
-    point.y = [self restrictValue:point.y Between:0.0 And:size.height];
-    return point;
-}
-
 - (void) nextFrame:(ccTime)dt
 {
     [starship update:dt];
     for (Enemy *enemy in enemis) {
         [enemy update:dt];
+    }
+    for (Bullet *bullet in bullets) {
+        [bullet update:dt];
     }
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F80F0367146B4AEB001D310E /* geometry.c in Sources */ = {isa = PBXBuildFile; fileRef = F80F0366146B4AEB001D310E /* geometry.c */; };
+		F8597CFC147093A700940834 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = F8597CFB147093A700940834 /* Bullet.m */; };
 		F85DCC0E142E113B00BB6491 /* YPlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC0D142E113B00BB6491 /* YPlayScene.m */; };
 		F85DCC12142E13EC00BB6491 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC11142E13EC00BB6491 /* MainLayer.m */; };
 		F85F20D6145A016900A213C7 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = F85F20D5145A016900A213C7 /* Enemy.m */; };
@@ -142,12 +143,13 @@
 		F8D5DB11142DBB2E00C2A769 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D5DB10142DBB2E00C2A769 /* main.m */; };
 		F8D5DB14142DBB2E00C2A769 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D5DB13142DBB2E00C2A769 /* AppDelegate.m */; };
 		F8D5DB17142DBB2E00C2A769 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D5DB16142DBB2E00C2A769 /* RootViewController.m */; };
-		F8D5DB1A142DBB2E00C2A769 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D5DB19142DBB2E00C2A769 /* HelloWorldLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F80F0363146B4A98001D310E /* geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry.h; sourceTree = "<group>"; };
 		F80F0366146B4AEB001D310E /* geometry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = geometry.c; sourceTree = "<group>"; };
+		F8597CFA147093A700940834 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
+		F8597CFB147093A700940834 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
 		F85DCC0C142E113B00BB6491 /* YPlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPlayScene.h; sourceTree = "<group>"; };
 		F85DCC0D142E113B00BB6491 /* YPlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPlayScene.m; sourceTree = "<group>"; };
 		F85DCC10142E13EC00BB6491 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
@@ -406,8 +408,6 @@
 		F8D5DB13142DBB2E00C2A769 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F8D5DB15142DBB2E00C2A769 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		F8D5DB16142DBB2E00C2A769 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		F8D5DB18142DBB2E00C2A769 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		F8D5DB19142DBB2E00C2A769 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		F8D5DB1B142DBB2E00C2A769 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -463,8 +463,8 @@
 		F85DCC0F142E136200BB6491 /* PlaySceneLayers */ = {
 			isa = PBXGroup;
 			children = (
-				F8D5DB18142DBB2E00C2A769 /* HelloWorldLayer.h */,
-				F8D5DB19142DBB2E00C2A769 /* HelloWorldLayer.m */,
+				F85DCC0C142E113B00BB6491 /* YPlayScene.h */,
+				F85DCC0D142E113B00BB6491 /* YPlayScene.m */,
 				F85DCC10142E13EC00BB6491 /* MainLayer.h */,
 				F85DCC11142E13EC00BB6491 /* MainLayer.m */,
 				F8B1ABC5143D1481008C0961 /* PauseLayer.h */,
@@ -476,10 +476,12 @@
 		F85F20D2145A010B00A213C7 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				F85F20D4145A016900A213C7 /* Enemy.h */,
-				F85F20D5145A016900A213C7 /* Enemy.m */,
 				F8B1ABBD143D071C008C0961 /* Starship.h */,
 				F8B1ABBE143D071C008C0961 /* Starship.m */,
+				F85F20D4145A016900A213C7 /* Enemy.h */,
+				F85F20D5145A016900A213C7 /* Enemy.m */,
+				F8597CFA147093A700940834 /* Bullet.h */,
+				F8597CFB147093A700940834 /* Bullet.m */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -519,16 +521,14 @@
 		F8D5D9C0142DBB2A00C2A769 /* Yog-Shot-Oth */ = {
 			isa = PBXGroup;
 			children = (
-				F85F20D2145A010B00A213C7 /* Sprites */,
 				F8B04DB914311F9B00D2FCFC /* Constants.h */,
 				F8B04DBA14311F9B00D2FCFC /* Constants.m */,
+				F85F20D2145A010B00A213C7 /* Sprites */,
 				F85DCC0F142E136200BB6491 /* PlaySceneLayers */,
 				F8D5DB12142DBB2E00C2A769 /* AppDelegate.h */,
 				F8D5DB13142DBB2E00C2A769 /* AppDelegate.m */,
 				F8D5DB15142DBB2E00C2A769 /* RootViewController.h */,
 				F8D5DB16142DBB2E00C2A769 /* RootViewController.m */,
-				F85DCC0C142E113B00BB6491 /* YPlayScene.h */,
-				F85DCC0D142E113B00BB6491 /* YPlayScene.m */,
 				F8D5DB1B142DBB2E00C2A769 /* GameConfig.h */,
 				F8D5D9C1142DBB2A00C2A769 /* Resources */,
 				F8D5D9D5142DBB2B00C2A769 /* libs */,
@@ -1047,7 +1047,6 @@
 				F8D5DB11142DBB2E00C2A769 /* main.m in Sources */,
 				F8D5DB14142DBB2E00C2A769 /* AppDelegate.m in Sources */,
 				F8D5DB17142DBB2E00C2A769 /* RootViewController.m in Sources */,
-				F8D5DB1A142DBB2E00C2A769 /* HelloWorldLayer.m in Sources */,
 				F85DCC0E142E113B00BB6491 /* YPlayScene.m in Sources */,
 				F85DCC12142E13EC00BB6491 /* MainLayer.m in Sources */,
 				F8B04DBB14311F9B00D2FCFC /* Constants.m in Sources */,
@@ -1055,6 +1054,7 @@
 				F8B1ABC7143D1481008C0961 /* PauseLayer.m in Sources */,
 				F85F20D6145A016900A213C7 /* Enemy.m in Sources */,
 				F80F0367146B4AEB001D310E /* geometry.c in Sources */,
+				F8597CFC147093A700940834 /* Bullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

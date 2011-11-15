@@ -17,13 +17,14 @@
     CGSize winSize;
     CGPoint speed;
     Starship *target;
-//    Bullets *bullets;
+    ccTime   lastTime;
     int life;
 }
 
 @property (readonly) CCSprite *sprite;
+@property (assign)   ccTime lastTime;
 
 - (id)initWithTexture:(CCTexture2D *)texture father:(MainLayer *)parentScene;
-
+- (void)shootTo:(CGPoint)position;
 - (void)update:(ccTime)dt;
 @end

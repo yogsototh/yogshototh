@@ -7,13 +7,16 @@
 //
 
 #import "Enemy.h"
+#import "Bullet.h"
 
 @implementation Enemy 
 
 @synthesize sprite;
+@synthesize lastTime;
 
 - (id)initWithTexture:(CCTexture2D *)texture father:(MainLayer *)parentScene {
     self = [super init];
+    lastTime=0.0;
     if (self) {
         sprite = [[CCSprite alloc] initWithTexture:texture];
         speed = ccp(0,0);
@@ -28,10 +31,19 @@
     return self;
 }
 
+- (void)shootTo:(CGPoint)position {
+    Bullet *bullet = [[Bullet alloc] initWithStartPosition:sprite.position toPosition: position];
+    [father addBullet:bullet];
+}
+
 - (void)update:(ccTime)dt {
-    CGPoint vectFromSpriteToStarship = ccpSub(father.starship.sprite.position, sprite.position);
+    CGPoint vectFromSpriteToStarship = ccpSub(father.starship.position, sprite.position);
     
-    speed = ccpMult(ccpNormalize(vectFromSpriteToStarship),0.4);
+    speed = ccpMult(ccpNormalize(vectFromSpriteToStarship),1.0);
+    
+    if (dt - lastTime > 1000) {
+        [self shootTo:father.starship.position];
+    }
     
     sprite.position = ccpAdd(sprite.position, speed);
         
