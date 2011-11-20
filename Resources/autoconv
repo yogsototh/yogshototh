@@ -3,7 +3,7 @@
 typeset -A assoc
 assoc=( $( tr '\n' ' ' < config-resize ) )
 
-targetdir="../Yog-Shot-Oth/"
+targetdir="../Yog-Shot-Oth/Resources/sprites"
 
 for fic in ${(k)assoc}; do
     print $fic → ${assoc[$fic]}

@@ -32,7 +32,7 @@
     self = [super init];
     if (self) {
         winSize = winSizeGiven;
-        sprite = [CCSprite spriteWithFile:@"Starship.png"];
+        sprite = [CCSprite spriteWithFile:@"Starship-aile.png"];
         sprite.position = ccp(winSize.width/2, 50);
         self.positionAtTouchBegan         = sprite.position;
         self.initialTouch       = self.positionAtTouchBegan;

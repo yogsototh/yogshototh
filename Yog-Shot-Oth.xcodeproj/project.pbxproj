@@ -10,6 +10,10 @@
 		F80F0367146B4AEB001D310E /* geometry.c in Sources */ = {isa = PBXBuildFile; fileRef = F80F0366146B4AEB001D310E /* geometry.c */; };
 		F855005414797D52008B02A5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F855005214797D52008B02A5 /* Default.png */; };
 		F855005514797D52008B02A5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F855005314797D52008B02A5 /* Default@2x.png */; };
+		F855005814798DAD008B02A5 /* Starship-aile-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F855005614798DAD008B02A5 /* Starship-aile-hd.png */; };
+		F855005914798DAD008B02A5 /* Starship-aile.png in Resources */ = {isa = PBXBuildFile; fileRef = F855005714798DAD008B02A5 /* Starship-aile.png */; };
+		F855005C1479968C008B02A5 /* Soggoth-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F855005A1479968C008B02A5 /* Soggoth-hd.png */; };
+		F855005D1479968C008B02A5 /* Soggoth.png in Resources */ = {isa = PBXBuildFile; fileRef = F855005B1479968C008B02A5 /* Soggoth.png */; };
 		F8597CFC147093A700940834 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = F8597CFB147093A700940834 /* Bullet.m */; };
 		F85DCC0E142E113B00BB6491 /* YPlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC0D142E113B00BB6491 /* YPlayScene.m */; };
 		F85DCC12142E13EC00BB6491 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DCC11142E13EC00BB6491 /* MainLayer.m */; };
@@ -151,6 +155,10 @@
 		F80F0366146B4AEB001D310E /* geometry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = geometry.c; sourceTree = "<group>"; };
 		F855005214797D52008B02A5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		F855005314797D52008B02A5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
+		F855005614798DAD008B02A5 /* Starship-aile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Starship-aile-hd.png"; path = "Resources/sprites/Starship-aile-hd.png"; sourceTree = "<group>"; };
+		F855005714798DAD008B02A5 /* Starship-aile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Starship-aile.png"; path = "Resources/sprites/Starship-aile.png"; sourceTree = "<group>"; };
+		F855005A1479968C008B02A5 /* Soggoth-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Soggoth-hd.png"; path = "Resources/sprites/Soggoth-hd.png"; sourceTree = "<group>"; };
+		F855005B1479968C008B02A5 /* Soggoth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Soggoth.png; path = Resources/sprites/Soggoth.png; sourceTree = "<group>"; };
 		F8597CFA147093A700940834 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		F8597CFB147093A700940834 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
 		F85DCC0C142E113B00BB6491 /* YPlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPlayScene.h; sourceTree = "<group>"; };
@@ -444,7 +452,11 @@
 		F85DCC04142E0EEB00BB6491 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				F855005614798DAD008B02A5 /* Starship-aile-hd.png */,
+				F855005714798DAD008B02A5 /* Starship-aile.png */,
 				F8687E04143E43EB00FF817B /* Bullet-hd.png */,
+				F855005A1479968C008B02A5 /* Soggoth-hd.png */,
+				F855005B1479968C008B02A5 /* Soggoth.png */,
 				F8687E05143E43EB00FF817B /* Bullet.png */,
 				F8687E06143E43EB00FF817B /* LongBullet-hd.png */,
 				F8687E07143E43EB00FF817B /* LongBullet.png */,
@@ -944,6 +956,10 @@
 				F8687E1D143E43EC00FF817B /* Yogsototh.png in Resources */,
 				F855005414797D52008B02A5 /* Default.png in Resources */,
 				F855005514797D52008B02A5 /* Default@2x.png in Resources */,
+				F855005814798DAD008B02A5 /* Starship-aile-hd.png in Resources */,
+				F855005914798DAD008B02A5 /* Starship-aile.png in Resources */,
+				F855005C1479968C008B02A5 /* Soggoth-hd.png in Resources */,
+				F855005D1479968C008B02A5 /* Soggoth.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
