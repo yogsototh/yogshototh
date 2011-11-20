@@ -102,10 +102,16 @@
 
 - (void) nextFrame:(ccTime)dt
 {
+    // update all objects
+    // Starship
     [starship update:dt];
+    
+    // Enemies
     for (Enemy *enemy in enemis) {
         [enemy update:dt];
     }
+    
+    // Bullets
     for (Bullet *bullet in bullets) {
         [bullet update:dt];
     }

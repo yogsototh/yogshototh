@@ -28,6 +28,21 @@
 }
 
 - (void)update:(ccTime)dt {
+/*    CGPoint vectFromSpriteToStarship = ccpSub(father.starship.position, sprite.position);
+    
+    speed = ccpMult(ccpNormalize(vectFromSpriteToStarship),1.0);
+    
+    if (dt - lastTime > 1000) {
+        [self shootTo:father.starship.position];
+    }
+    
+    sprite.position = ccpAdd(sprite.position, ccpMult(speed,dt));
+    
+    if (ccpLength(vectFromSpriteToStarship) < 10.0) {
+        NSLog(@"Collision!");
+    }    
+    
+  */  
     sprite.position = ccpAdd(sprite.position, speed);
     if (outOfWindow(sprite.position, sprite.boundingBox.size, father.winSize)) {
         [self dealloc];
