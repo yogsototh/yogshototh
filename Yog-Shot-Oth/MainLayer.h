@@ -16,11 +16,10 @@
     Starship *starship;
     CCSprite *pauseMessage;
 
-    CCTexture2D *enemyTexture;
     NSMutableSet *enemis;
- 
-    CCTexture2D *bulletTexture;
     NSMutableSet *bullets;
+    
+    NSArray *cachedTextures;
 }
 @property (readonly) CGSize winSize;
 @property (readonly) Starship *starship;

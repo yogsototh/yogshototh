@@ -31,18 +31,16 @@
 
         // initialize enemies
         // Load textures in cache
-        enemyTexture = [[CCTextureCache sharedTextureCache] addImage:@"Panou.png"];
         enemis = [[NSMutableSet alloc] initWithCapacity:INITIAL_ALLOC_ENEMY_NUMBER];
         Enemy *enemy;
-        for (int i=0; i<INITIAL_ALLOC_ENEMY_NUMBER; i++) {
-            enemy = [[Enemy alloc] initWithTexture:enemyTexture father:self];
+        for (int i=0; i<1; i++) {
+            enemy = [[Enemy alloc] initWithParent:self];
             [enemis addObject:enemy];
             [self addChild:enemy z:0];
         }
 
         // alloc bullets
         // Load textures in cache
-        bulletTexture = [[CCTextureCache sharedTextureCache] addImage:@"Bullet.png"];
         bullets = [[NSMutableSet alloc] initWithCapacity:INITIAL_ALLOC_BULLET_NUMBER];
 
         // Alloc pause message
@@ -62,6 +60,7 @@
 
 -(void) addBullet:(Bullet *)bullet
 {
+    NSLog(@"addBullet");
     [bullets addObject:bullet];
 }
 

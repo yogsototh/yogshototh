@@ -8,18 +8,20 @@
 
 #import "Enemy.h"
 #import "Bullet.h"
+#import "geometry.h"
 
 @implementation Enemy 
 
 @synthesize sprite;
 @synthesize lastTime;
 
-- (id)initWithTexture:(CCTexture2D *)texture father:(MainLayer *)parentScene {
+- (id)initWithParent:(MainLayer *)parentScene {
     self = [super init];
     lastTime=0.0;
     if (self) {
+        CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"Panou.png"];
         sprite = [[CCSprite alloc] initWithTexture:texture];
-        speed = ccp(0,0);
+        speed = ccp(0,-2.0);
         father = parentScene;
         // Position randomly
         sprite.position = ccp(
@@ -27,29 +29,29 @@
                              100 + (rand() % ((int)father.winSize.height - 100)));
 
         [self addChild:sprite];
+        [self schedule:@selector(shoot:) interval:3.0];
     }
     return self;
 }
 
 - (void)shootTo:(CGPoint)position {
-    Bullet *bullet = [[Bullet alloc] initWithStartPosition:sprite.position toPosition: position];
+    Bullet *bullet = [[Bullet alloc] initWithStartPosition:sprite.position toPosition: position withSpeed:3.0 andMainLayer:father];
     [father addBullet:bullet];
 }
 
 - (void)update:(ccTime)dt {
-    CGPoint vectFromSpriteToStarship = ccpSub(father.starship.position, sprite.position);
-    
-    speed = ccpMult(ccpNormalize(vectFromSpriteToStarship),1.0);
-    
-    if (dt - lastTime > 1000) {
-        [self shootTo:father.starship.position];
-    }
-    
+    // detect out of windows
     sprite.position = ccpAdd(sprite.position, speed);
-        
-    if (ccpLength(vectFromSpriteToStarship) < 10.0) {
-        NSLog(@"Collision!");
+    
+    if (outOfWindow(sprite.position, sprite.boundingBox.size, father.winSize)) {
+        NSLog(@"I am out of window");
+        [self dealloc];
     }
 }
+
+- (void)shoot:(ccTime)dt {
+    [self shootTo:father.starship.position];
+}
+
 
 @end

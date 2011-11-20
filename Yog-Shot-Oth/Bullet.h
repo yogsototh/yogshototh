@@ -19,7 +19,7 @@
 }
 @property (assign) MainLayer *father;
 
-- (id)initWithStartPosition:(CGPoint)fromPosition toPosition:(CGPoint)toPosition;
+- (id)initWithStartPosition:(CGPoint)fromPosition toPosition:(CGPoint)toPosition withSpeed:(CGFloat)speed andMainLayer:(MainLayer*)mainLayer;
 - (void)update:(ccTime)dt;
 
 @end
