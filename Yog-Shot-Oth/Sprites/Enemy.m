@@ -29,7 +29,9 @@
                              100 + (rand() % ((int)father.winSize.height - 100)));
 
         [self addChild:sprite];
-        [self schedule:@selector(shoot:) interval:3.0];
+        [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.0], 
+                         [CCCallFunc actionWithTarget:self selector:@selector(shoot:)],
+                         nil]];
     }
     return self;
 }
@@ -44,8 +46,8 @@
     sprite.position = ccpAdd(sprite.position, speed);
     
     if (outOfWindow(sprite.position, sprite.boundingBox.size, father.winSize)) {
-        NSLog(@"I am out of window");
-        [self dealloc];
+        NSLog(@"Enemy: I am out of window");
+        [father removeEnemy:self];
     }
 }
 
@@ -53,5 +55,10 @@
     [self shootTo:father.starship.position];
 }
 
+- (void) dealloc
+{
+    [sprite release];
+    [super dealloc];
+}
 
 @end

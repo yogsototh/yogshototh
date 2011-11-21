@@ -30,17 +30,14 @@
         [self addChild:starship z:5];
 
         // initialize enemies
-        // Load textures in cache
         enemis = [[NSMutableSet alloc] initWithCapacity:INITIAL_ALLOC_ENEMY_NUMBER];
         Enemy *enemy;
-        for (int i=0; i<1; i++) {
+        for (int i=0; i<INITIAL_ALLOC_ENEMY_NUMBER; i++) {
             enemy = [[Enemy alloc] initWithParent:self];
-            [enemis addObject:enemy];
-            [self addChild:enemy z:0];
+            [self addEnemy:enemy];
         }
 
         // alloc bullets
-        // Load textures in cache
         bullets = [[NSMutableSet alloc] initWithCapacity:INITIAL_ALLOC_BULLET_NUMBER];
 
         // Alloc pause message
@@ -58,16 +55,50 @@
     return self;
 }
 
+// Add / Remove bullet
 -(void) addBullet:(Bullet *)bullet
 {
     NSLog(@"addBullet");
     [bullets addObject:bullet];
+    [self addChild:bullet z:4];
 }
 
 -(void) removeBullet:(Bullet *)bullet
 {
-    [bullets removeObject:bullet];
-    [bullet release];
+    [yspriteToRemove addObject:bullet];
+}
+-(void) cleanupBullets
+{
+    for (CCNode *enemy in yspriteToRemove) {
+        [enemis removeObject:enemy];
+        [self removeChild:enemy cleanup:YES];
+        [enemy release];    
+    }
+    [yspriteToRemove removeAllObjects];
+}
+
+
+// Add / Remove Enemy
+-(void) addEnemy:(Enemy *)enemy
+{
+    NSLog(@"addEnemy");
+    [enemis addObject:enemy];
+    [self addChild:enemy z:0];
+}
+
+-(void) removeEnemy:(Enemy *)enemy
+{
+    [yspriteToRemove addObject:enemy];
+}
+
+-(void) cleanupEnemis
+{
+    for (CCNode *enemy in yspriteToRemove) {
+        [enemis removeObject:enemy];
+        [self removeChild:enemy cleanup:YES];
+        [enemy release];    
+    }
+    [yspriteToRemove removeAllObjects];
 }
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -109,11 +140,13 @@
     for (Enemy *enemy in enemis) {
         [enemy update:dt];
     }
+    [self cleanupEnemis];
     
     // Bullets
     for (Bullet *bullet in bullets) {
         [bullet update:dt];
     }
+    [self cleanupBullets];
 }
 
 - (void) dealloc 

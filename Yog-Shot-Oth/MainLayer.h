@@ -9,6 +9,7 @@
 #import "cocos2d.h"
 @class Starship;
 @class Bullet;
+@class Enemy;
 
 @interface MainLayer : CCLayer {
     CGSize winSize;
@@ -18,6 +19,7 @@
 
     NSMutableSet *enemis;
     NSMutableSet *bullets;
+    NSMutableSet *yspriteToRemove;
     
     NSArray *cachedTextures;
 }
@@ -25,4 +27,8 @@
 @property (readonly) Starship *starship;
 
 -(void) addBullet:(Bullet *)bullet;
+-(void) removeBullet:(Bullet *)bullet;
+
+-(void) addEnemy:(Enemy *)enemy;
+-(void) removeEnemy:(Enemy *)enemy;
 @end
