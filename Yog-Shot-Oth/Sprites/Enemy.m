@@ -39,6 +39,7 @@
 - (void)shootTo:(CGPoint)position {
     Bullet *bullet = [[Bullet alloc] initWithStartPosition:sprite.position toPosition: position withSpeed:3.0 andMainLayer:father];
     [father addBullet:bullet];
+    [bullet autorelease];
 }
 
 - (void)update:(ccTime)dt {
@@ -46,7 +47,6 @@
     sprite.position = ccpAdd(sprite.position, speed);
     
     if (outOfWindow(sprite.position, sprite.boundingBox.size, father.winSize)) {
-        NSLog(@"Enemy: I am out of window");
         [father removeEnemy:self];
     }
 }

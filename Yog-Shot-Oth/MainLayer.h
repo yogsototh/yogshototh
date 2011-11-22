@@ -31,4 +31,5 @@
 
 -(void) addEnemy:(Enemy *)enemy;
 -(void) removeEnemy:(Enemy *)enemy;
+
 @end

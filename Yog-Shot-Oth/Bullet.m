@@ -42,7 +42,6 @@
     // detect out of windows
     sprite.position = ccpAdd(sprite.position, speed);
     if (outOfWindow(sprite.position, sprite.boundingBox.size, father.winSize)) {
-        NSLog(@"[Bullet] I am out of window (%1.1f,%1.1f), width: %1.1f, height: %1.1f, rect=(%1.1f,%1.1f)", sprite.position.x, sprite.position.y, sprite.boundingBox.size.width, sprite.boundingBox.size.height, father.winSize.width, father.winSize.height);
         [father removeBullet:self];
     }
 }

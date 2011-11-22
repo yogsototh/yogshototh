@@ -29,12 +29,16 @@
         starship = [[Starship alloc] initWithWinSize:winSize];
         [self addChild:starship z:5];
 
+        // Initialize set used to get the list of sprite to remove each frame
+        yspriteToRemove = [[NSMutableSet alloc] initWithCapacity:INITIAL_ALLOC_ENEMY_NUMBER];
+
         // initialize enemies
         enemis = [[NSMutableSet alloc] initWithCapacity:INITIAL_ALLOC_ENEMY_NUMBER];
         Enemy *enemy;
         for (int i=0; i<INITIAL_ALLOC_ENEMY_NUMBER; i++) {
             enemy = [[Enemy alloc] initWithParent:self];
             [self addEnemy:enemy];
+            [enemy autorelease];
         }
 
         // alloc bullets
@@ -55,6 +59,21 @@
     return self;
 }
 
+// Clean up the "ysprite" inside an NSMutableSet
+-(void) cleanupSpriteSet:(NSMutableSet *)spriteSet
+{
+    if ([yspriteToRemove count] == 0) {
+        return;
+    }
+    NSLog(@"YSprites to cleanup: %d from %d", [yspriteToRemove count], [spriteSet count]);
+    for (CCNode *ysprite in yspriteToRemove) {
+        [spriteSet removeObject:ysprite];
+        [self removeChild:ysprite cleanup:YES];
+    }
+    [yspriteToRemove removeAllObjects];
+    NSLog(@"YSprites after cleanup: %d", [spriteSet count]);
+}
+
 // Add / Remove bullet
 -(void) addBullet:(Bullet *)bullet
 {
@@ -65,16 +84,13 @@
 
 -(void) removeBullet:(Bullet *)bullet
 {
+    NSLog(@"removeBullet");
     [yspriteToRemove addObject:bullet];
 }
+
 -(void) cleanupBullets
 {
-    for (CCNode *enemy in yspriteToRemove) {
-        [enemis removeObject:enemy];
-        [self removeChild:enemy cleanup:YES];
-        [enemy release];    
-    }
-    [yspriteToRemove removeAllObjects];
+    [self cleanupSpriteSet:bullets];
 }
 
 
@@ -88,17 +104,13 @@
 
 -(void) removeEnemy:(Enemy *)enemy
 {
+    NSLog(@"removeEnemy");
     [yspriteToRemove addObject:enemy];
 }
 
 -(void) cleanupEnemis
 {
-    for (CCNode *enemy in yspriteToRemove) {
-        [enemis removeObject:enemy];
-        [self removeChild:enemy cleanup:YES];
-        [enemy release];    
-    }
-    [yspriteToRemove removeAllObjects];
+    [self cleanupSpriteSet:enemis];
 }
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -154,6 +166,7 @@
     [starship release];
     [bullets release];
     [enemis release];
+    [yspriteToRemove release];
     [super dealloc];
 }
 
