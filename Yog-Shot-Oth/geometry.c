@@ -30,10 +30,9 @@ BOOL youtsideSegment(CGFloat value, CGFloat min, CGFloat max) {
     return NO;
 }
 
-
 BOOL outOfWindow(CGPoint pos, CGSize size, CGSize windowSize) {
     CGFloat halfwidth=size.width/2;
     CGFloat halfheight=size.height/2;
-    return youtsideSegment(pos.x, halfwidth,  windowSize.width - halfwidth) ||
-           youtsideSegment(pos.y, halfheight, windowSize.height - halfheight);
+    return youtsideSegment(pos.x, -halfwidth,  windowSize.width + halfwidth) ||
+           youtsideSegment(pos.y, -halfheight, windowSize.height + halfheight);
 }
