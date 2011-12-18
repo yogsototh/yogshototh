@@ -24,6 +24,7 @@
 @property (readonly) CCSprite *sprite;
 @property (assign)   ccTime lastTime;
 
+- (void)initialize;
 - (id)initWithParent:(MainLayer *)parentScene;
 - (void)shootTo:(CGPoint)position;
 - (void)update:(ccTime)dt;

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F80F0367146B4AEB001D310E /* geometry.c in Sources */ = {isa = PBXBuildFile; fileRef = F80F0366146B4AEB001D310E /* geometry.c */; };
+		F82ADAA2149E3D4C00FEF3E9 /* Panou.m in Sources */ = {isa = PBXBuildFile; fileRef = F82ADAA1149E3D4C00FEF3E9 /* Panou.m */; };
 		F855005414797D52008B02A5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F855005214797D52008B02A5 /* Default.png */; };
 		F855005514797D52008B02A5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F855005314797D52008B02A5 /* Default@2x.png */; };
 		F855005814798DAD008B02A5 /* Starship-aile-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F855005614798DAD008B02A5 /* Starship-aile-hd.png */; };
@@ -153,6 +154,8 @@
 /* Begin PBXFileReference section */
 		F80F0363146B4A98001D310E /* geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry.h; sourceTree = "<group>"; };
 		F80F0366146B4AEB001D310E /* geometry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = geometry.c; sourceTree = "<group>"; };
+		F82ADAA0149E3D4C00FEF3E9 /* Panou.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Panou.h; sourceTree = "<group>"; };
+		F82ADAA1149E3D4C00FEF3E9 /* Panou.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Panou.m; sourceTree = "<group>"; };
 		F855005214797D52008B02A5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		F855005314797D52008B02A5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		F855005614798DAD008B02A5 /* Starship-aile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Starship-aile-hd.png"; path = "Resources/sprites/Starship-aile-hd.png"; sourceTree = "<group>"; };
@@ -449,6 +452,15 @@
 			name = Y;
 			sourceTree = "<group>";
 		};
+		F82ADA9E149E3AC100FEF3E9 /* Enemis */ = {
+			isa = PBXGroup;
+			children = (
+				F82ADAA0149E3D4C00FEF3E9 /* Panou.h */,
+				F82ADAA1149E3D4C00FEF3E9 /* Panou.m */,
+			);
+			name = Enemis;
+			sourceTree = "<group>";
+		};
 		F85DCC04142E0EEB00BB6491 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,6 +502,7 @@
 		F85F20D2145A010B00A213C7 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				F82ADA9E149E3AC100FEF3E9 /* Enemis */,
 				F8B1ABBD143D071C008C0961 /* Starship.h */,
 				F8B1ABBE143D071C008C0961 /* Starship.m */,
 				F85F20D4145A016900A213C7 /* Enemy.h */,
@@ -1075,6 +1088,7 @@
 				F85F20D6145A016900A213C7 /* Enemy.m in Sources */,
 				F80F0367146B4AEB001D310E /* geometry.c in Sources */,
 				F8597CFC147093A700940834 /* Bullet.m in Sources */,
+				F82ADAA2149E3D4C00FEF3E9 /* Panou.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

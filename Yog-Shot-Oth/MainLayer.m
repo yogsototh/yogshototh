@@ -11,6 +11,7 @@
 #import "CCTouchDispatcher.h"
 #import "Starship.h"
 #import "Enemy.h"
+#import "Panou.h"
 #import "Bullet.h"
 
 @implementation MainLayer
@@ -36,7 +37,7 @@
         enemis = [[NSMutableSet alloc] initWithCapacity:INITIAL_ALLOC_ENEMY_NUMBER];
         Enemy *enemy;
         for (int i=0; i<INITIAL_ALLOC_ENEMY_NUMBER; i++) {
-            enemy = [[Enemy alloc] initWithParent:self];
+            enemy = [[Panou alloc] initWithParent:self];
             [self addEnemy:enemy];
             [enemy autorelease];
         }
@@ -79,7 +80,7 @@
 {
     NSLog(@"addBullet");
     [bullets addObject:bullet];
-    [self addChild:bullet z:4];
+    [self addChild:bullet z:10];
 }
 
 -(void) removeBullet:(Bullet *)bullet
