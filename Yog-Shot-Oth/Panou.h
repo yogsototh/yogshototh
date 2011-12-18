@@ -9,5 +9,5 @@
 #import "Enemy.h"
 
 @interface Panou : Enemy
-
+- (void)tirRafale:(ccTime)dt;
 @end

@@ -37,16 +37,9 @@
 }
 
 - (void)update:(ccTime)dt {
-    // detect out of windows
-    sprite.position = ccpAdd(sprite.position, speed);
-    
-    if (outOfWindow(sprite.position, sprite.boundingBox.size, father.winSize)) {
-        [father removeEnemy:self];
-    }
 }
 
-- (void)shoot:(ccTime)dt {
-    [self shootTo:father.starship.position];
+- (void)shoot {
 }
 
 - (void) dealloc

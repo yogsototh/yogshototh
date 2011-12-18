@@ -27,5 +27,6 @@
 - (void)initialize;
 - (id)initWithParent:(MainLayer *)parentScene;
 - (void)shootTo:(CGPoint)position;
+- (void)shoot;
 - (void)update:(ccTime)dt;
 @end
