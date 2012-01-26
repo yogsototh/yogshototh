@@ -70,10 +70,14 @@
     CGPoint closest;
     CGPoint position;
     CGFloat minDist=winSize.width + winSize.height;
+    CGFloat dist;
     for (UITouch *touch in touches) { 
         position=[self positionFromTouch:touch];
-        if (ccpDistance(position, targetPosition) < minDist)
+        dist=ccpDistance(position, targetPosition);
+        if (dist < minDist) {
             closest = position;
+            minDist = dist;
+        }
     }
     return closest;
 }
