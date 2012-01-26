@@ -35,22 +35,18 @@
 
         // initialize enemies
         enemis = [[NSMutableSet alloc] initWithCapacity:INITIAL_ALLOC_ENEMY_NUMBER];
-        Enemy *enemy;
-        for (int i=0; i<INITIAL_ALLOC_ENEMY_NUMBER; i++) {
-            enemy = [[Panou alloc] initWithParent:self];
-            [self addEnemy:enemy];
-            [enemy autorelease];
-        }
-
+        
         // alloc bullets
         bullets = [[NSMutableSet alloc] initWithCapacity:INITIAL_ALLOC_BULLET_NUMBER];
-
+        
         // Alloc pause message
         pauseMessage = [[CCSprite alloc] initWithFile:@"Pause.png"];
         pauseMessage.position = ccp(winSize.width/2, winSize.height/2);
         [pauseMessage runAction:[CCFadeOut actionWithDuration: 0]];
         [self addChild:pauseMessage z:10];
-
+        
+        lastNumber = 2;
+        [self populate:lastNumber];
         
         self.isTouchEnabled = YES;
         
@@ -60,32 +56,44 @@
     return self;
 }
 
+-(void) populate:(int)n
+{
+    Enemy *enemy;
+    for (int i=0; i<n; i++) {
+        enemy = [[Panou alloc] initWithParent:self];
+        [self addEnemy:enemy];
+        [enemy autorelease];
+    }
+    
+   
+}
+
 // Clean up the "ysprite" inside an NSMutableSet
 -(void) cleanupSpriteSet:(NSMutableSet *)spriteSet
 {
     if ([yspriteToRemove count] == 0) {
         return;
     }
-    NSLog(@"YSprites to cleanup: %d from %d", [yspriteToRemove count], [spriteSet count]);
     for (CCNode *ysprite in yspriteToRemove) {
         [spriteSet removeObject:ysprite];
         [self removeChild:ysprite cleanup:YES];
     }
     [yspriteToRemove removeAllObjects];
-    NSLog(@"YSprites after cleanup: %d", [spriteSet count]);
+    if ([spriteSet count] == 0) {
+        lastNumber *= 2;
+        [self populate: lastNumber];
+    }
 }
 
 // Add / Remove bullet
 -(void) addBullet:(Bullet *)bullet
 {
-    NSLog(@"addBullet");
     [bullets addObject:bullet];
     [self addChild:bullet z:10];
 }
 
 -(void) removeBullet:(Bullet *)bullet
 {
-    NSLog(@"removeBullet");
     [yspriteToRemove addObject:bullet];
 }
 
@@ -98,14 +106,12 @@
 // Add / Remove Enemy
 -(void) addEnemy:(Enemy *)enemy
 {
-    NSLog(@"addEnemy");
     [enemis addObject:enemy];
     [self addChild:enemy z:0];
 }
 
 -(void) removeEnemy:(Enemy *)enemy
 {
-    NSLog(@"removeEnemy");
     [yspriteToRemove addObject:enemy];
 }
 

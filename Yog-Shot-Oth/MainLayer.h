@@ -22,6 +22,7 @@
     NSMutableSet *yspriteToRemove;
     
     NSArray *cachedTextures;
+    int lastNumber;
 }
 @property (readonly) CGSize winSize;
 @property (readonly) Starship *starship;
@@ -31,5 +32,5 @@
 
 -(void) addEnemy:(Enemy *)enemy;
 -(void) removeEnemy:(Enemy *)enemy;
-
+-(void) populate:(int)n;
 @end

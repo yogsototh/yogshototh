@@ -7,5 +7,5 @@
 //
 
 #import "Constants.h"
-const int INITIAL_ALLOC_ENEMY_NUMBER  = 20;
-const int INITIAL_ALLOC_BULLET_NUMBER = 256;
+const int INITIAL_ALLOC_ENEMY_NUMBER  = 200;
+const int INITIAL_ALLOC_BULLET_NUMBER = 2048;

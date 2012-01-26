@@ -154,7 +154,7 @@
 /* Begin PBXFileReference section */
 		F80F0363146B4A98001D310E /* geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry.h; sourceTree = "<group>"; };
 		F80F0366146B4AEB001D310E /* geometry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = geometry.c; sourceTree = "<group>"; };
-		F82ADAA0149E3D4C00FEF3E9 /* Panou.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Panou.h; sourceTree = "<group>"; };
+		F82ADAA0149E3D4C00FEF3E9 /* Panou.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Panou.h; sourceTree = "<group>"; };
 		F82ADAA1149E3D4C00FEF3E9 /* Panou.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Panou.m; sourceTree = "<group>"; };
 		F855005214797D52008B02A5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		F855005314797D52008B02A5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		F85DCC0D142E113B00BB6491 /* YPlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPlayScene.m; sourceTree = "<group>"; };
 		F85DCC10142E13EC00BB6491 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
 		F85DCC11142E13EC00BB6491 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
-		F85F20D4145A016900A213C7 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = Sprites/Enemy.h; sourceTree = "<group>"; };
+		F85F20D4145A016900A213C7 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; name = Enemy.h; path = Sprites/Enemy.h; sourceTree = "<group>"; };
 		F85F20D5145A016900A213C7 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Enemy.m; path = Sprites/Enemy.m; sourceTree = "<group>"; };
 		F8687E04143E43EB00FF817B /* Bullet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Bullet-hd.png"; path = "Resources/sprites/Bullet-hd.png"; sourceTree = "<group>"; };
 		F8687E05143E43EB00FF817B /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bullet.png; path = Resources/sprites/Bullet.png; sourceTree = "<group>"; };
