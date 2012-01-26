@@ -16,6 +16,7 @@
     CCSprite *sprite;
     CGSize winSize;
     CGPoint speed;
+    int collisionDistance;
 }
 @property (assign) MainLayer *father;
 

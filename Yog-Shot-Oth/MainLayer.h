@@ -33,4 +33,5 @@
 -(void) addEnemy:(Enemy *)enemy;
 -(void) removeEnemy:(Enemy *)enemy;
 -(void) populate:(int)n;
+-(void) colisionOccured;
 @end

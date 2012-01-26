@@ -43,7 +43,7 @@
         pauseMessage = [[CCSprite alloc] initWithFile:@"Pause.png"];
         pauseMessage.position = ccp(winSize.width/2, winSize.height/2);
         [pauseMessage runAction:[CCFadeOut actionWithDuration: 0]];
-        [self addChild:pauseMessage z:10];
+        [self addChild:pauseMessage z:20];
         
         lastNumber = 2;
         [self populate:lastNumber];
@@ -175,6 +175,11 @@
     [enemis release];
     [yspriteToRemove release];
     [super dealloc];
+}
+
+- (void) colisionOccured
+{
+    lastNumber=1;
 }
 
 @end

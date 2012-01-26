@@ -22,6 +22,7 @@
         CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"Bullet.png"];
         sprite = [[CCSprite alloc] initWithTexture:texture];
         sprite.position = fromPosition;
+        collisionDistance=sprite.boundingBoxInPixels.size.width / 2;
         CGPoint direction = ccpNormalize(ccpSub(toPosition, fromPosition));
         speed = ccpMult(direction, initSpeed);
         [self addChild:sprite];
@@ -35,8 +36,8 @@
     
     // detect collision
     CGPoint vectFromSpriteToStarship = ccpSub(father.starship.position, sprite.position);
-    if (ccpLength(vectFromSpriteToStarship) < 10.0) {
-        NSLog(@"Collision!");
+    if (ccpLength(vectFromSpriteToStarship) < collisionDistance) {
+        [father colisionOccured];
     }    
     
     // detect out of windows
