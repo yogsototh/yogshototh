@@ -7,6 +7,7 @@
 //
 
 #import "cocos2d.h"
+#import "CCLabelTTF.h"
 @class Starship;
 @class Bullet;
 @class Enemy;
@@ -23,6 +24,9 @@
     
     NSArray *cachedTextures;
     int lastNumber;
+    
+    int score;
+    CCLabelTTF *scoreLabel;
 }
 @property (readonly) CGSize winSize;
 @property (readonly) Starship *starship;
@@ -34,4 +38,6 @@
 -(void) removeEnemy:(Enemy *)enemy;
 -(void) populate:(int)n;
 -(void) colisionOccured;
+
+-(void) updateScoreLabel;
 @end
