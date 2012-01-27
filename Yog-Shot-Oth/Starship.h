@@ -18,6 +18,7 @@
     CGPoint positionAtTouchBegan;
     CGPoint initialTouch;
     CGPoint lastTouch;
+    UITouch *firstTouch;
 }
 
 @property (readonly) CCSprite *sprite;
@@ -28,8 +29,8 @@
 - (id)initWithWinSize:(CGSize)winSize;
 - (void)update:(ccTime)dt;
 - (void)touchBegan:(UITouch *)touch;
-- (void)touchEnded:(UITouch *)touch;
-- (void)touchMoved:(UITouch *)touch;
+- (void)touchesEnded:(NSSet *)touches;
+- (void)touchesMoved:(NSSet *)touches;
 - (void)touchesOccured:(NSSet *)touches;
 
 - (CGPoint)position;

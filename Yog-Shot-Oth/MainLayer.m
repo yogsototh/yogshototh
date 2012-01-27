@@ -125,28 +125,32 @@
     
     if ([touches count]>1) {
         [starship touchesOccured:touches];
+    } 
+    else {
+        UITouch *touch=[touches anyObject];
+        [starship touchBegan:touch];
     }
-    UITouch *touch=[touches anyObject];
-    [starship touchBegan:touch];
-    [pauseMessage stopAllActions];
-    [pauseMessage runAction:[CCFadeOut actionWithDuration: 0]];
-    [self resumeSchedulerAndActions];
+    // Uncomment to enable pause on untouch
+    // [pauseMessage stopAllActions];
+    // [pauseMessage runAction:[CCFadeOut actionWithDuration: 0]];
+    // [self resumeSchedulerAndActions];
 }
 
 
 - (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *touch=[touches anyObject];
-    [starship touchEnded:touch];
-    [pauseMessage stopAllActions];
-    [pauseMessage runAction:[CCFadeIn actionWithDuration: 0.5]];
-    [self pauseSchedulerAndActions];
+    
+    [starship touchesEnded:touches];
+    
+    // Uncomment to enable pause on untouch
+    // [pauseMessage stopAllActions];
+    // [pauseMessage runAction:[CCFadeIn actionWithDuration: 0.5]];
+    // [self pauseSchedulerAndActions];
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *touch = [touches anyObject];
-    [starship touchMoved:touch];
+    [starship touchesMoved:touches];
 }
 
 - (void) nextFrame:(ccTime)dt

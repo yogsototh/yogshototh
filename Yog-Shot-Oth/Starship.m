@@ -32,6 +32,7 @@
     self = [super init];
     if (self) {
         winSize = winSizeGiven;
+        firstTouch = nil;
         sprite = [CCSprite spriteWithFile:@"Starship-aile.png"];
         sprite.position = ccp(winSize.width/2, 50);
         self.positionAtTouchBegan         = sprite.position;
@@ -54,22 +55,45 @@
 }
 
 -(void)touchBegan:(UITouch *)touch {
+    if (firstTouch != nil) return;
+    firstTouch = touch;
     self.positionAtTouchBegan = sprite.position;
     self.initialTouch = [self positionFromTouch:touch];
     self.lastTouch = self.initialTouch;
 }
 
--(void)touchEnded:(UITouch *)touch {}
-
--(void)touchMoved:(UITouch *)touch {
+-(void)touchesOccured:(NSSet *)touches {
     //Simply store the touch location for later processing by the
-    self.lastTouch = [self positionFromTouch:touch];
+    if (firstTouch != nil) return;    
+    [self touchBegan:[touches anyObject]];
+}
+
+
+-(void)touchesEnded:(NSSet *)touches { 
+    for (UITouch *touch in touches) {
+        if (touch == firstTouch) {
+            firstTouch=nil;
+        }
+    }
+}
+
+-(void)touchesMoved:(NSSet *)touches {
+    //Simply store the touch location for later processing by the
+    for (UITouch *touch in touches) {
+        if (firstTouch == touch) {
+            self.lastTouch = [self positionFromTouch:touch];
+            return;
+        }
+    }
 }
 
 -(CGPoint)findTouchIn:(NSSet *)touches closestTo:(CGPoint)targetPosition {
+    if ([touches count] == 1) {
+        return [self positionFromTouch:[touches anyObject]];
+    }
     CGPoint closest;
     CGPoint position;
-    CGFloat minDist=winSize.width + winSize.height;
+    CGFloat minDist=INTMAX_MAX;
     CGFloat dist;
     for (UITouch *touch in touches) { 
         position=[self positionFromTouch:touch];
@@ -80,12 +104,6 @@
         }
     }
     return closest;
-}
-
--(void)touchesOccured:(NSSet *)touches {
-    //Simply store the touch location for later processing by the
-    NSLog(@"Multiple touches occured");
-    self.lastTouch = [self findTouchIn:touches closestTo:lastTouch];
 }
 
 -(void)update:(ccTime)dt {
