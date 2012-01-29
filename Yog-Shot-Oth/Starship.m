@@ -33,7 +33,7 @@
     if (self) {
         winSize = winSizeGiven;
         firstTouch = nil;
-        sprite = [CCSprite spriteWithFile:@"Starship-aile.png"];
+        sprite = [CCSprite spriteWithFile:@"pentacleOne.png"];
         sprite.position = ccp(winSize.width/2, 50);
         self.positionAtTouchBegan         = sprite.position;
         self.initialTouch       = self.positionAtTouchBegan;
