@@ -43,6 +43,7 @@
 
         // Initialize starship
         starship = [[Starship alloc] initWithWinSize:winSize];
+        starship.father = self;
         [self addChild:starship z:5];
 
         // Initialize set used to get the list of sprite to remove each frame
@@ -134,6 +135,10 @@
     [ssbullets addObject:ssbullet];
     [self addChild:ssbullet z:8];
 }
+-(void) removeSSBullet:(SSBullet *)ssbullet
+{
+    [yspriteToRemove addObject:ssbullet];
+}
 
 -(void) cleanupBullets
 {
@@ -196,18 +201,25 @@
     // update all objects
     // Starship
     [starship update:dt];
+
+    // Starship bullets
+    for (SSBullet *ssbullet in ssbullets) {
+        [ssbullet update:dt];
+    }
+    [self cleanupSpriteSet:ssbullets];
     
     // Enemies
     for (Enemy *enemy in enemis) {
         [enemy update:dt];
     }
-    [self cleanupEnemis];
+    [self cleanupSpriteSet:enemis];
     
     // Bullets
     for (Bullet *bullet in bullets) {
         [bullet update:dt];
     }
-    [self cleanupBullets];
+    [self cleanupSpriteSet:bullets];
+    
 }
 
 - (void) dealloc 

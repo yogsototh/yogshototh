@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "CCSprite.h"
 #import "geometry.h"
+#import "SSBullet.h"
 
 @implementation Starship
 
@@ -22,10 +23,12 @@
     }
     return self;
 }
+@synthesize father;
 @synthesize positionAtTouchBegan;
 @synthesize initialTouch;
 @synthesize lastTouch;
 @synthesize sprite;
+@synthesize lastShotTime;
 
 - (id)initWithWinSize:(CGSize)winSizeGiven
 {
@@ -38,6 +41,7 @@
         self.positionAtTouchBegan         = sprite.position;
         self.initialTouch       = self.positionAtTouchBegan;
         self.lastTouch          = self.positionAtTouchBegan;
+        self.lastShotTime       = 0.0;
         [self addChild:sprite];
     }
     return self;
@@ -106,11 +110,22 @@
     return closest;
 }
 
+-(void)shot {
+    SSBullet *newBullet = [[SSBullet alloc] initWithStartPosition:self.position withSpeed:ccp(0.0, 10.0) andMainLayer:father];
+
+    [self.father addSSBullet:newBullet];
+}
+
 -(void)update:(ccTime)dt {
     // sensibility is 1.2
     sprite.position = ccpAdd(self.positionAtTouchBegan, ccpMult(ccpSub(self.initialTouch, self.lastTouch),1.2));
 
     sprite.position = ccpRestrict(sprite.position,sprite.boundingBox.size,winSize);
+    lastShotTime += dt;
+    if (lastShotTime > 0.1) {
+        lastShotTime = 0;
+        [self shot];
+    }
 }
 
 @end

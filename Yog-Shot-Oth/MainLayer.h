@@ -11,6 +11,7 @@
 @class Starship;
 @class Bullet;
 @class Enemy;
+@class SSBullet;
 
 @interface MainLayer : CCLayer {
     CGSize winSize;
@@ -35,6 +36,8 @@
 
 -(void) addBullet:(Bullet *)bullet;
 -(void) removeBullet:(Bullet *)bullet;
+-(void) addSSBullet:(SSBullet *)ssbullet;
+-(void) removeSSBullet:(SSBullet *)bullet;
 
 -(void) addEnemy:(Enemy *)enemy;
 -(void) removeEnemy:(Enemy *)enemy;

@@ -20,7 +20,6 @@
     ccTime   lastTime;
     int life;
 }
-
 @property (readonly) CCSprite *sprite;
 @property (assign)   ccTime lastTime;
 

@@ -13,4 +13,6 @@
 
 @interface SSBullet : Bullet
 
+- (id)initWithStartPosition:(CGPoint)fromPosition withSpeed:(CGPoint)initSpeed andMainLayer:(MainLayer *)mainLayer;
+
 @end

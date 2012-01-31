@@ -14,17 +14,15 @@
 
 @synthesize father;
 
-- (id)initWithStartPosition:(CGPoint)fromPosition toPosition:(CGPoint)toPosition withSpeed:(CGFloat)initSpeed andMainLayer:(MainLayer *)mainLayer {
+- (id)initWithStartPosition:(CGPoint)fromPosition withSpeed:(CGPoint)initSpeed andMainLayer:(MainLayer *)mainLayer {
     self = [super init];
     if (self) {
         father = mainLayer;
-        // Position randomly
-        CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"Bullet.png"];
+        CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"pentacleOneBullet.png"];
         sprite = [[CCSprite alloc] initWithTexture:texture];
         sprite.position = fromPosition;
         collisionDistance=sprite.boundingBoxInPixels.size.width;
-        CGPoint direction = ccpNormalize(ccpSub(toPosition, fromPosition));
-        speed = ccpMult(direction, initSpeed);
+        speed = initSpeed;
         [self addChild:sprite];
     }
     return self;
