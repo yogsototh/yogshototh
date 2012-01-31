@@ -13,11 +13,13 @@
 #import "Enemy.h"
 #import "Panou.h"
 #import "Bullet.h"
+#import "SSBullet.h"
 
 @implementation MainLayer
 
 @synthesize winSize;
 @synthesize starship;
+@synthesize enemis;
 
 // -- specific getter and setter for score
 - (int)getScore {
@@ -37,6 +39,7 @@
     if (self) {
         
         winSize = [[CCDirector sharedDirector] winSize];
+        // winSize.height -= 80;
 
         // Initialize starship
         starship = [[Starship alloc] initWithWinSize:winSize];
@@ -50,6 +53,9 @@
         
         // alloc bullets
         bullets = [[NSMutableSet alloc] initWithCapacity:INITIAL_ALLOC_BULLET_NUMBER];
+        
+        // alloc StarshipBullets
+        ssbullets = [[NSMutableSet alloc] initWithCapacity:INITIAL_ALLOC_BULLET_NUMBER];
         
         // Alloc pause message
         pauseMessage = [[CCSprite alloc] initWithFile:@"Pause.png"];
@@ -121,6 +127,12 @@
 {
     [yspriteToRemove addObject:bullet];
     [self setScore: score+1];
+}
+
+-(void) addSSBullet:(SSBullet *)ssbullet
+{
+    [ssbullets addObject:ssbullet];
+    [self addChild:ssbullet z:8];
 }
 
 -(void) cleanupBullets

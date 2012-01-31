@@ -21,6 +21,7 @@
     NSMutableSet *enemis;
     NSMutableSet *bullets;
     NSMutableSet *yspriteToRemove;
+    NSMutableSet *ssbullets;
     
     NSArray *cachedTextures;
     int lastNumber;
@@ -30,6 +31,7 @@
 }
 @property (readonly) CGSize winSize;
 @property (readonly) Starship *starship;
+@property (readonly) NSMutableSet *enemis;
 
 -(void) addBullet:(Bullet *)bullet;
 -(void) removeBullet:(Bullet *)bullet;

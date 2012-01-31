@@ -30,17 +30,15 @@
     return self;
 }
 
-- (void)shootTo:(CGPoint)position {
-    Bullet *bullet = [[Bullet alloc] initWithStartPosition:sprite.position toPosition: position withSpeed:1.0 andMainLayer:father];
+- (void)shootTo:(CGPoint)position withSpeed:(CGFloat)bulletSpeed {
+    Bullet *bullet = [[Bullet alloc] initWithStartPosition:sprite.position toPosition: position withSpeed:bulletSpeed andMainLayer:father];
     [father addBullet:bullet];
     [bullet autorelease];
 }
 
-- (void)update:(ccTime)dt {
-}
-
-- (void)shoot {
-}
+- (void)update:(ccTime)dt {}
+- (void)shoot {}
+- (void)collisionOccured {}
 
 - (void) dealloc
 {

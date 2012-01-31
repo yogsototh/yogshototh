@@ -107,7 +107,8 @@
 }
 
 -(void)update:(ccTime)dt {
-    sprite.position = ccpAdd(self.positionAtTouchBegan, ccpSub(self.initialTouch, self.lastTouch));
+    // sensibility is 1.2
+    sprite.position = ccpAdd(self.positionAtTouchBegan, ccpMult(ccpSub(self.initialTouch, self.lastTouch),1.2));
 
     sprite.position = ccpRestrict(sprite.position,sprite.boundingBox.size,winSize);
 }

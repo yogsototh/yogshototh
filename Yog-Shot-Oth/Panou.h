@@ -10,4 +10,5 @@
 
 @interface Panou : Enemy
 - (void)tirRafale:(ccTime)dt;
+- (CGPoint)jitter:(CGPoint)position withNoise:(int)noise;
 @end

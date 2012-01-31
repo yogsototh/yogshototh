@@ -26,7 +26,8 @@
 
 - (void)initialize;
 - (id)initWithParent:(MainLayer *)parentScene;
-- (void)shootTo:(CGPoint)position;
+- (void)shootTo:(CGPoint)position withSpeed:(CGFloat)bulletSpeed;
 - (void)shoot;
 - (void)update:(ccTime)dt;
+- (void)collisionOccured;
 @end

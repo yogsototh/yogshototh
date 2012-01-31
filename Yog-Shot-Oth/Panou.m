@@ -30,8 +30,8 @@
 }
 
 - (void)tirRafale:(ccTime)dt {
-    for (int i=0; i<13; i++) {
-        [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.0+(i/10.0)], 
+    for (int i=0; i<10; i++) {
+        [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.0+(i/3.0)], 
                          [CCCallFunc actionWithTarget:self selector:@selector(shoot:)],
                          nil]];
    }
@@ -46,7 +46,22 @@
     }
 }
 
-- (void)shoot:(ccTime)dt {
-    [self shootTo:father.starship.position];
+- (CGPoint)jitter:(CGPoint)position withNoise:(int)noise {
+    CGPoint result;
+    result.x = position.x + rand()%noise;
+    result.y = position.y + rand()%noise;
+    return result;
 }
+
+- (void)shoot:(ccTime)dt {
+    [self shootTo:[self jitter:father.starship.position withNoise:30] withSpeed:1.5];
+}
+
+- (void)collisionOccured {
+    // Show collision animation
+    // For now it disapear immediately
+    [father  removeEnemy:self]; 
+}
+
 @end
+
