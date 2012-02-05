@@ -21,7 +21,7 @@
         CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"pentacleOneBullet.png"];
         sprite = [[CCSprite alloc] initWithTexture:texture];
         sprite.position = fromPosition;
-        collisionDistance=sprite.boundingBoxInPixels.size.width;
+        collisionDistance=sprite.boundingBoxInPixels.size.width + sprite.boundingBoxInPixels.size.height;
         speed = initSpeed;
         [self addChild:sprite];
     }
@@ -29,7 +29,11 @@
 }
 
 - (void)collisionOccured {
-    // Make bullet destruction animation
+    [CCCallFuncN actionWithTarget:father selector:@selector(removeSSBullet:)];
+}
+- (void)disapear
+{
+    [self removeChild:sprite cleanup:YES];
 }
 
 - (void)cancelled {
@@ -38,13 +42,16 @@
 
 
 - (void)update:(ccTime)dt {
+    
+    if (!sprite) return;
     // update position
     sprite.position = ccpAdd(sprite.position, ccpMult(speed,dt));
     
     // detect collision
     for (Enemy *enemy in father.enemis) {
-        CGPoint vectFromSpriteToEnemy = ccpSub(enemy.position, sprite.position);
-        if (ccpLength(vectFromSpriteToEnemy) < collisionDistance) {
+        CGFloat distance = ccpLength(ccpSub(enemy.sprite.position, sprite.position));
+        // NSLog(@"%f < %d",distance, collisionDistance);
+        if (distance < collisionDistance) {
             [enemy collisionOccured];
             [self collisionOccured];
         }    

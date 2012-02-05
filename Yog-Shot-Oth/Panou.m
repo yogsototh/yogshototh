@@ -38,6 +38,8 @@
 }
 
 - (void)update:(ccTime)dt {
+    
+    if (!sprite) return;
     // detect out of windows
     sprite.position = ccpAdd(sprite.position, speed);
     

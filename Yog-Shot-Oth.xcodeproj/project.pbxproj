@@ -154,6 +154,8 @@
 		F8D5DB11142DBB2E00C2A769 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D5DB10142DBB2E00C2A769 /* main.m */; };
 		F8D5DB14142DBB2E00C2A769 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D5DB13142DBB2E00C2A769 /* AppDelegate.m */; };
 		F8D5DB17142DBB2E00C2A769 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D5DB16142DBB2E00C2A769 /* RootViewController.m */; };
+		F8DD4BC514DF38B900D83062 /* explode-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F8DD4BC314DF38B900D83062 /* explode-hd.png */; };
+		F8DD4BC614DF38B900D83062 /* explode.png in Resources */ = {isa = PBXBuildFile; fileRef = F8DD4BC414DF38B900D83062 /* explode.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -433,6 +435,8 @@
 		F8D5DB15142DBB2E00C2A769 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		F8D5DB16142DBB2E00C2A769 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		F8D5DB1B142DBB2E00C2A769 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		F8DD4BC314DF38B900D83062 /* explode-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "explode-hd.png"; path = "Resources/sprites/explode-hd.png"; sourceTree = "<group>"; };
+		F8DD4BC414DF38B900D83062 /* explode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = explode.png; path = Resources/sprites/explode.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -475,6 +479,8 @@
 		F85DCC04142E0EEB00BB6491 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				F8DD4BC314DF38B900D83062 /* explode-hd.png */,
+				F8DD4BC414DF38B900D83062 /* explode.png */,
 				F844AAEA14D589D700FED535 /* pentacleOne-hd.png */,
 				F844AAED14D589DE00FED535 /* pentacleOne.png */,
 				F844AAEF14D58F4200FED535 /* pentacleOneBullet-hd.png */,
@@ -994,6 +1000,8 @@
 				F844AAEE14D589DE00FED535 /* pentacleOne.png in Resources */,
 				F844AAF114D58F4200FED535 /* pentacleOneBullet-hd.png in Resources */,
 				F844AAF214D58F4200FED535 /* pentacleOneBullet.png in Resources */,
+				F8DD4BC514DF38B900D83062 /* explode-hd.png in Resources */,
+				F8DD4BC614DF38B900D83062 /* explode.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

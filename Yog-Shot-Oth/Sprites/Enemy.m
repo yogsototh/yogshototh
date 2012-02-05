@@ -38,8 +38,10 @@
 
 - (void)update:(ccTime)dt {}
 - (void)shoot {}
-- (void)collisionOccured {}
-
+- (void)collisionOccured {
+    // [sprite setTexture:[[CCTextureCache sharedTextureCache] addImage:@"explode.png"]];
+    [CCCallFuncN actionWithTarget:father selector:@selector(removeEnemy:)];
+}
 - (void) dealloc
 {
     [sprite release];

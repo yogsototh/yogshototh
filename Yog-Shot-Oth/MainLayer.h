@@ -42,6 +42,7 @@
 -(void) addEnemy:(Enemy *)enemy;
 -(void) removeEnemy:(Enemy *)enemy;
 -(void) populate:(int)n;
+-(void) autoPopulate:(ccTime)dt;
 -(void) colisionOccured;
 
 -(void) updateScoreLabel;

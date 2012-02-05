@@ -72,8 +72,10 @@
         scoreLabel.position = ccp(winSize.width - 92,winSize.height - 12);
         [self addChild:scoreLabel z:19];
         
-        lastNumber = 2;
-        [self populate:lastNumber];
+        lastNumber = 0;
+        [self autoPopulate:0];
+        
+        
         [self setScore:0];
         
         self.isTouchEnabled = YES;
@@ -95,6 +97,20 @@
     [self setScore:score + n * 5];
 }
 
+- (int) lastNumberIteration:(int)n {
+    return n + n/4 + 1;
+}
+
+- (void) autoPopulate:(ccTime)dt {
+    NSLog(@"autoPopulate");
+    lastNumber = (lastNumber<1)?1:[self lastNumberIteration: lastNumber ];
+    [self populate:lastNumber];
+    [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:3.0], 
+                 [CCCallFunc actionWithTarget:self selector:@selector(autoPopulate:)],
+                 nil]];
+}
+
+
 -(void) updateScoreLabel
 {
     [scoreLabel setString: [NSString stringWithFormat:@"%d", score]];
@@ -111,10 +127,6 @@
         [self removeChild:ysprite cleanup:YES];
     }
     [yspriteToRemove removeAllObjects];
-    if ([spriteSet count] == 0) {
-        lastNumber *= 2;
-        [self populate: lastNumber];
-    }
 }
 
 // Add / Remove bullet
