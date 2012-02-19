@@ -20,6 +20,7 @@
     CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"Panou.png"];    
     sprite = [[CCSprite alloc] initWithTexture:texture];
     speed = ccp(0,-(0.3 + (rand() % 100)/70.0));
+    self.life = 3;
     // Position randomly
     sprite.position = ccp(
                       rand() % (int)father.winSize.width,

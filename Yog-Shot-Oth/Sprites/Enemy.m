@@ -15,6 +15,15 @@
 @synthesize sprite;
 @synthesize lastTime;
 @synthesize state;
+-(int)life {
+    return life;
+}
+-(void)setLife:(int)newLifeValue {
+    life=newLifeValue;
+    if (life<=0) {
+        self.state = DESTROYED;
+    }
+}
 
 - (void)initialize {
     [NSException raise:@"uninstancied function" format:@"la fonction initialize est invalide"];
@@ -46,7 +55,7 @@
 - (void)shoot {}
 - (void)collisionOccured {
     [sprite setTexture:[[CCTextureCache sharedTextureCache] addImage:@"explode.png"]];
-    self.state = DESTROYED;
+    self.life = life - 1;
 }
 - (void) dealloc
 {

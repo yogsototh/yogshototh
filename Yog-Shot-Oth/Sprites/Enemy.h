@@ -25,6 +25,7 @@
 @property (readonly) CCSprite *sprite;
 @property (assign)   ccTime lastTime;
 @property (assign)   SpriteState state;
+@property (assign)   int life;
 
 - (void)initialize;
 - (id)initWithParent:(MainLayer *)parentScene;
