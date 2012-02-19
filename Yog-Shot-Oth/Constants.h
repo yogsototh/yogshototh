@@ -8,3 +8,7 @@
 
 extern const int INITIAL_ALLOC_ENEMY_NUMBER;
 extern const int INITIAL_ALLOC_BULLET_NUMBER;
+typedef enum EnumSpriteState {
+      OK
+    , DESTROYED
+} SpriteState;

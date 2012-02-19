@@ -14,6 +14,7 @@
 
 @synthesize sprite;
 @synthesize lastTime;
+@synthesize state;
 
 - (void)initialize {
     [NSException raise:@"uninstancied function" format:@"la fonction initialize est invalide"];
@@ -26,6 +27,7 @@
         father = parentScene;
         [self initialize];
         [self addChild:sprite];
+        [self setState:OK];
     }
     return self;
 }
@@ -36,11 +38,15 @@
     [bullet autorelease];
 }
 
-- (void)update:(ccTime)dt {}
+- (void)update:(ccTime)dt {
+    if (self.state == DESTROYED) {
+        [father removeEnemy:self];
+    }
+}
 - (void)shoot {}
 - (void)collisionOccured {
-    // [sprite setTexture:[[CCTextureCache sharedTextureCache] addImage:@"explode.png"]];
-    [CCCallFuncN actionWithTarget:father selector:@selector(removeEnemy:)];
+    [sprite setTexture:[[CCTextureCache sharedTextureCache] addImage:@"explode.png"]];
+    self.state = DESTROYED;
 }
 - (void) dealloc
 {

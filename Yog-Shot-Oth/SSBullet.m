@@ -29,11 +29,7 @@
 }
 
 - (void)collisionOccured {
-    [CCCallFuncN actionWithTarget:father selector:@selector(removeSSBullet:)];
-}
-- (void)disapear
-{
-    [self removeChild:sprite cleanup:YES];
+    [father removeSSBullet:self];
 }
 
 - (void)cancelled {
@@ -60,7 +56,7 @@
     // detect out of windows
     sprite.position = ccpAdd(sprite.position, speed);
     if (outOfWindow(sprite.position, sprite.boundingBox.size, father.winSize)) {
-        [father removeBullet:self];
+        [father removeSSBullet:self];
     }
 }
 

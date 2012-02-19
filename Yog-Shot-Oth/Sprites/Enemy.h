@@ -7,6 +7,7 @@
 //
 
 #import "cocos2d.h"
+#import "Constants.h"
 #import "Starship.h"
 #import "MainLayer.h"
 
@@ -19,9 +20,11 @@
     Starship *target;
     ccTime   lastTime;
     int life;
+    SpriteState state;
 }
 @property (readonly) CCSprite *sprite;
 @property (assign)   ccTime lastTime;
+@property (assign)   SpriteState state;
 
 - (void)initialize;
 - (id)initWithParent:(MainLayer *)parentScene;

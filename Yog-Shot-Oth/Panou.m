@@ -38,7 +38,7 @@
 }
 
 - (void)update:(ccTime)dt {
-    
+    [super update:dt];
     if (!sprite) return;
     // detect out of windows
     sprite.position = ccpAdd(sprite.position, speed);
@@ -62,7 +62,7 @@
 - (void)collisionOccured {
     // Show collision animation
     // For now it disapear immediately
-    [father  removeEnemy:self]; 
+    [super collisionOccured];
 }
 
 @end
