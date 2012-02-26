@@ -11,16 +11,15 @@
 
 @implementation YSprite 
 
-@synthesize sprite;
 @synthesize lastTime;
 @synthesize damage;
+@synthesize controller;
 
 // Accessor for state
 -(SpriteState)state { return state; }
--(void)state:(SpriteState)newState { 
+-(void)setState:(SpriteState)newState { 
     if (newState == state) return;
     state=newState;
-    [self startAnimation:[self animationForState:state]]; 
 }
 
 // Accessor for life
@@ -45,12 +44,11 @@
     //                  @"sprite1destroyed", nil];
 }
 
-- (id)initWithMaster:(id)masterObject {
+- (id)initWithController:(id)controllerObject {
     self = [super init];
     if (self) {
-        self.master = masterObject;
+        self.controller = controllerObject;
         [self initialize];
-        [self addChild:sprite];
         [self setLife:1];
         [self setDamage:0];
         [self setState:OK];
@@ -58,26 +56,12 @@
     return self;
 }
 
-- (void)shootTo:(CGPoint)position withSpeed:(CGFloat)bulletSpeed {
-    Bullet *bullet = [[Bullet alloc] initWithStartPosition:sprite.position toPosition: position withSpeed:bulletSpeed andMainLayer:father];
-    [father addBullet:bullet];
-    [bullet autorelease];
-}
 
-- (void)update:(ccTime)dt {
-    if (self.state == DESTROYED) {
-        [father removeEnemy:self];
-    }
-}
+- (void)update:(yTime)dt {}
 - (void)shoot {}
-- (void)collisionOccured {
-    [sprite setTexture:[[CCTextureCache sharedTextureCache] addImage:@"explode.png"]];
-    self.life = life - 1;
+- (void)collisionWith:(YSprite *)collider {
+    self.life = life - collider.damage;
 }
-- (void) dealloc
-{
-    [sprite release];
-    [super dealloc];
-}
+- (void) dealloc { [super dealloc]; }
 
 @end

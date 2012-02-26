@@ -13,6 +13,7 @@
 		F844AAEE14D589DE00FED535 /* pentacleOne.png in Resources */ = {isa = PBXBuildFile; fileRef = F844AAED14D589DE00FED535 /* pentacleOne.png */; };
 		F844AAF114D58F4200FED535 /* pentacleOneBullet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F844AAEF14D58F4200FED535 /* pentacleOneBullet-hd.png */; };
 		F844AAF214D58F4200FED535 /* pentacleOneBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = F844AAF014D58F4200FED535 /* pentacleOneBullet.png */; };
+		F84597AA14FA343200F353C1 /* YSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F84597A914FA343200F353C1 /* YSprite.m */; };
 		F855005414797D52008B02A5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F855005214797D52008B02A5 /* Default.png */; };
 		F855005514797D52008B02A5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F855005314797D52008B02A5 /* Default@2x.png */; };
 		F855005814798DAD008B02A5 /* Starship-aile-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F855005614798DAD008B02A5 /* Starship-aile-hd.png */; };
@@ -167,6 +168,8 @@
 		F844AAED14D589DE00FED535 /* pentacleOne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pentacleOne.png; path = Resources/sprites/pentacleOne.png; sourceTree = "<group>"; };
 		F844AAEF14D58F4200FED535 /* pentacleOneBullet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pentacleOneBullet-hd.png"; path = "Resources/sprites/pentacleOneBullet-hd.png"; sourceTree = "<group>"; };
 		F844AAF014D58F4200FED535 /* pentacleOneBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pentacleOneBullet.png; path = Resources/sprites/pentacleOneBullet.png; sourceTree = "<group>"; };
+		F84597A814FA343200F353C1 /* YSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSprite.h; path = Sprites/YSprite.h; sourceTree = "<group>"; };
+		F84597A914FA343200F353C1 /* YSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSprite.m; path = Sprites/YSprite.m; sourceTree = "<group>"; };
 		F855005214797D52008B02A5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		F855005314797D52008B02A5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		F855005614798DAD008B02A5 /* Starship-aile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Starship-aile-hd.png"; path = "Resources/sprites/Starship-aile-hd.png"; sourceTree = "<group>"; };
@@ -523,6 +526,8 @@
 		F85F20D2145A010B00A213C7 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				F84597A814FA343200F353C1 /* YSprite.h */,
+				F84597A914FA343200F353C1 /* YSprite.m */,
 				F82ADA9E149E3AC100FEF3E9 /* Enemis */,
 				F8B1ABBD143D071C008C0961 /* Starship.h */,
 				F8B1ABBE143D071C008C0961 /* Starship.m */,
@@ -1119,6 +1124,7 @@
 				F8597CFC147093A700940834 /* Bullet.m in Sources */,
 				F82ADAA2149E3D4C00FEF3E9 /* Panou.m in Sources */,
 				F85E6B7F14D82CD300CE9A60 /* SSBullet.m in Sources */,
+				F84597AA14FA343200F353C1 /* YSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

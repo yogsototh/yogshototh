@@ -12,3 +12,4 @@ typedef enum EnumSpriteState {
       OK
     , DESTROYED
 } SpriteState;
+typedef float yTime;

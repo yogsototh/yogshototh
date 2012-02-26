@@ -10,20 +10,22 @@
 
 @interface YSprite : NSObject
 {
-    id  master; // The master object which handle sprite events
+    id  controller; // The controller object which handle sprite events
     int life;
     int damage;
     SpriteState state;
-    ccTime   lastTime;
+    yTime   lastTime;
     NSArray *animations; // An Array of array of animation frame
 }
+@property (retain)   id controller;
 @property (assign)   SpriteState state;
+@property (assign)   yTime lastTime;
 @property (assign)   int life;
 @property (assign)   int damage;
 
 - (void)initialize;
-- (id)initWithMaster:(id) masterObject;
-- (void)update:(ccTime)dt;
+- (id)initWithController:(id) controllerObject;
+- (void)update:(yTime)dt;
 - (void)collisionWith:(YSprite *)collider;
 - (int)animationForState:(SpriteState)state;
 @end
