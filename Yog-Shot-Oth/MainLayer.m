@@ -22,15 +22,29 @@
 @synthesize enemis;
 
 // -- specific getter and setter for score
-- (int)getScore {
+- (int)highscore {
+    return highscore;
+}
+
+- (void)setHighscore:(int)newScore {
+    highscore = newScore;
+    [self updateHighscoreLabel];
+    NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:highscore forKey:@"highscore"];
+    [defaults synchronize];
+}
+
+- (int)score {
     return score;
 }
 
 - (void)setScore:(int)newScore {
     score = newScore;
+    if (score>highscore) {
+        [self setHighscore:score];
+    }
     [self updateScoreLabel];
 }
-
 
 
 - (id)init
@@ -71,6 +85,19 @@
                                    fontSize: 20];
         scoreLabel.position = ccp(winSize.width - 92,winSize.height - 12);
         [self addChild:scoreLabel z:19];
+
+        NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
+        highscore =  [defaults integerForKey:@"highscore"];
+        highscoreLabel = [CCLabelTTF labelWithString: [NSString stringWithFormat:@"%d", highscore]
+                                      dimensions: CGSizeMake(180, 20)
+                                       alignment: UITextAlignmentRight
+                                        fontName: @"Helvetica"
+                                        fontSize: 20];
+        highscoreLabel.position = ccp(10,winSize.height - 12);
+        highscoreLabel.color = ccc3(240, 230, 80);
+        [self addChild:highscoreLabel z:19];
+        
+        
         
         lastNumber = 0;
         [self autoPopulate:0];
@@ -114,6 +141,11 @@
 -(void) updateScoreLabel
 {
     [scoreLabel setString: [NSString stringWithFormat:@"%d", score]];
+}
+
+-(void) updateHighscoreLabel
+{
+    [highscoreLabel setString:[NSString stringWithFormat:@"%d", highscore]];
 }
 
 // Clean up the "ysprite" inside an NSMutableSet

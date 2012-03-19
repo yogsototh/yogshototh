@@ -8,6 +8,7 @@
 
 extern const int INITIAL_ALLOC_ENEMY_NUMBER;
 extern const int INITIAL_ALLOC_BULLET_NUMBER;
+extern const int TOP_LAYER_Z_INDEX;
 typedef enum EnumSpriteState {
       OK
     , DESTROYED

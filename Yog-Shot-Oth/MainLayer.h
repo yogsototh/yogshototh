@@ -28,11 +28,15 @@
     int lastNumber;
     
     int score;
+    int highscore;
     CCLabelTTF *scoreLabel;
+    CCLabelTTF *highscoreLabel;
 }
 @property (readonly) CGSize winSize;
 @property (readonly) Starship *starship;
 @property (readonly) NSMutableSet *enemis;
+@property (readwrite,assign) int score;
+@property (readwrite,assign) int highscore;
 
 -(void) addBullet:(Bullet *)bullet;
 -(void) removeBullet:(Bullet *)bullet;
@@ -46,4 +50,5 @@
 -(void) colisionOccured;
 
 -(void) updateScoreLabel;
+-(void) updateHighscoreLabel;
 @end
