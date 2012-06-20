@@ -949,7 +949,7 @@
 		F8D5D9A3142DBB2A00C2A769 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = F8D5D9A6142DBB2A00C2A769 /* Build configuration list for PBXProject "Yog-Shot-Oth" */;
 			compatibilityVersion = "Xcode 3.2";
